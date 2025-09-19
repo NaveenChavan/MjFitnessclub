@@ -38,7 +38,7 @@ h1 {
 h2 {
     font-size: 3rem;
     font-weight: 700;
-    border-bottom: 2px solid #e30a13;
+    /* Yeh wali line maine ab hata di hai: border-bottom: 2px solid #e30a13; */
     padding-bottom: 0.5rem;
     margin-bottom: 2rem;
 }
@@ -106,6 +106,7 @@ p {
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 101;
 }
 
 .hero-content h2 {
@@ -417,10 +418,10 @@ section {
     to { opacity: 1; }
 }
 
-/* Responsive Design */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        display: none; /* Mobile par links ko chhipao */
         position: absolute;
         top: 90px;
         left: 0;
@@ -429,10 +430,11 @@ section {
         flex-direction: column;
         align-items: center;
         padding: 1rem 0;
+        z-index: 99;
     }
 
     .nav-links.active {
-        display: flex;
+        display: flex; /* Jab active ho to dikhao */
     }
 
     .nav-links li {
@@ -440,14 +442,6 @@ section {
     }
 
     .hamburger-menu {
-        display: block;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content h2 {
-        font-size: 1.2rem;
+        display: block; /* Hamburger icon ko dikhao */
     }
 }
