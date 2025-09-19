@@ -50,9 +50,8 @@ p {
 /* Header & Navigation */
 .hero-section {
     min-height: 100vh;
-    /* Two backgrounds are used here: one for the hero image and one for the logo */
     background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('gym2.jpeg') no-repeat center center/cover, url('logo.png') no-repeat center center/40% auto;
-    background-blend-mode: multiply, normal, luminosity; /* This makes both backgrounds blend together and the logo to be translucent */
+    background-blend-mode: multiply, normal, luminosity;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,6 +79,8 @@ p {
 .nav-links {
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
@@ -96,6 +97,15 @@ p {
 
 .nav-links a:hover {
     color: #e30a13;
+}
+
+.hamburger-menu {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .hero-content h2 {
@@ -409,16 +419,35 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
     .nav-links {
-        margin-top: 1rem;
+        display: none;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
     }
+
+    .nav-links.active {
+        display: flex;
+    }
+
     .nav-links li {
-        margin: 0 0.5rem;
+        margin: 1rem 0;
     }
+
+    .hamburger-menu {
+        display: block;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
     }
 }
