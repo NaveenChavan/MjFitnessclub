@@ -506,7 +506,7 @@
                 right: -100%;
                 width: 70%;
                 height: 100vh;
-                background: transparent;
+                background: rgba(0,0,0,0.2);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
