@@ -196,9 +196,8 @@ section {
 .trainer-card img {
     width: 100%;
     height: 250px;
-    /* Yahan badlav kiya gaya hai */
+    /* Isse trainers ki images cut nahi hongi aur unka aspect ratio theek rahega */
     object-fit: contain;
-    /* Badlav yahan khatam hota hai */
     border-radius: 8px;
     margin-bottom: 0.5rem;
     border: 2px solid #e30a13;
@@ -239,9 +238,8 @@ section {
 
 .service-card h3 {
     font-size: 1.8rem;
-    /* Yahan badlav kiya gaya hai */
+    /* Services headings ab red color mein dikhengi */
     color: #e30a13;
-    /* Badlav yahan khatam hota hai */
     margin-bottom: 1rem;
 }
 
