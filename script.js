@@ -25,11 +25,15 @@
                 });
             }
 
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
+          // Navigation background on scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(0,0,0,0.9)';
+    } else {
+        navbar.style.background = 'transparent';
+    }
+});
 
             // For hamburger menu - FIXED
             const hamburgerMenu = document.querySelector('.hamburger-menu');
