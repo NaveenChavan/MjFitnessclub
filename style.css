@@ -513,6 +513,9 @@ section {
         align-items: center;
         padding: 1rem 0;
         z-index: 99;
+        /* Yahan naya code add kiya gaya hai */
+        overflow-y: auto;
+        max-height: 80vh;
     }
 
     .nav-links.active {
