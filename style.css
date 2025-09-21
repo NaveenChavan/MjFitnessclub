@@ -77,9 +77,14 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: transparent;
+    background: transparent !important; /* Force transparency */
     z-index: 1000;
     transition: background 0.3s ease;
+}
+
+/* Navigation background on scroll */
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.9) !important;
 }
 
 .logo img {
@@ -590,54 +595,55 @@ section {
     animation: fade-in-up 1s ease-out;
 }
 
-/* Modal for Bio */
+/* Modal for Bio - FIXED */
 .modal {
     display: none;
     position: fixed;
-    z-index: 101;
+    z-index: 10000; /* Increased z-index */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
-    padding-top: 60px;
-    animation: fadeIn 0.5s;
+    animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
     background-color: #1a1a1a;
-    margin: 5% auto;
+    margin: 10% auto;
     padding: 2rem;
     border: 2px solid #e30a13;
     width: 80%;
     max-width: 600px;
     border-radius: 10px;
     text-align: center;
-    animation: slide-in 0.5s ease-out;
+    position: relative;
+    animation: slideIn 0.3s ease;
 }
 
 .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
     color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
+    z-index: 10001; /* Increased z-index */
 }
 
 .close-button:hover,
 .close-button:focus {
     color: #e30a13;
     text-decoration: none;
-    transform: scale(1.1);
 }
 
 #trainerName {
     font-size: 2rem;
     color: #fff;
     margin-bottom: 1rem;
-    animation: fade-in-up 0.5s ease-out 0.2s both;
 }
 
 #trainerBio {
@@ -645,7 +651,7 @@ section {
     color: #bbb;
     font-style: italic;
     font-family: 'Montserrat', sans-serif;
-    animation: fade-in-up 0.5s ease-out 0.4s both;
+    line-height: 1.6;
 }
 
 /* WhatsApp Chat Button */
@@ -773,7 +779,7 @@ section {
     50% {
         box-shadow: 0 0 5px rgba(227, 10, 19, 0.9);
     }
-    100% {
+   100% {
         box-shadow: 0 0 1px rgba(227, 10, 19, 0.4);
     }
 }
@@ -912,5 +918,12 @@ section {
         width: 35px;
         height: 35px;
         font-size: 0.8rem;
+    }
+    
+    /* Mobile modal adjustments */
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 1.5rem;
     }
 }

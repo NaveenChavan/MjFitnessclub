@@ -1,43 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // For trainer bio modal
+    // For trainer bio modal - FIXED VERSION
     const trainerCards = document.querySelectorAll('.trainer-card');
     const modal = document.getElementById('bioModal');
     const trainerNameElement = document.getElementById('trainerName');
     const trainerBioElement = document.getElementById('trainerBio');
     const closeButton = document.querySelector('.close-button');
 
+    // Function to open modal
+    function openModal(name, bio) {
+        trainerNameElement.textContent = name;
+        trainerBioElement.textContent = bio;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+
+    // Function to close modal
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    // Add click event to all trainer cards
     if (trainerCards.length > 0) {
         trainerCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const name = card.getAttribute('data-name');
-                const bio = card.getAttribute('data-bio');
-                
-                trainerNameElement.textContent = name;
-                trainerBioElement.textContent = bio;
-                modal.style.display = 'block';
+            card.addEventListener('click', (e) => {
+                // Check if the click was on the card itself, not a child element
+                if (e.target === card || card.contains(e.target)) {
+                    const name = card.getAttribute('data-name');
+                    const bio = card.getAttribute('data-bio');
+                    openModal(name, bio);
+                }
             });
         });
     }
 
+    // Close modal when close button is clicked
     if (closeButton) {
-        closeButton.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
+        closeButton.addEventListener('click', closeModal);
     }
 
+    // Close modal when clicking outside of modal content
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
-            modal.style.display = 'none';
+            closeModal();
         }
     });
 
-    // Navigation background on scroll
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
+        }
+    });
+
+    // Navigation background on scroll - FIXED (using class instead of inline style)
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(0,0,0,0.9)';
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.background = 'transparent';
+            navbar.classList.remove('scrolled');
         }
     });
 
