@@ -196,10 +196,12 @@ section {
 .trainer-card img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    /* Yahan badlav kiya gaya hai */
+    object-fit: contain;
+    /* Badlav yahan khatam hota hai */
     border-radius: 8px;
     margin-bottom: 0.5rem;
-    border: 2px solid #e30a13;
+    border: px solid #e30a13;
 }
 
 .trainer-card h3 {
@@ -237,7 +239,9 @@ section {
 
 .service-card h3 {
     font-size: 1.8rem;
-    color: #fff;
+    /* Yahan badlav kiya gaya hai */
+    color: #e30a13;
+    /* Badlav yahan khatam hota hai */
     margin-bottom: 1rem;
 }
 
@@ -372,14 +376,14 @@ section {
 }
 
 .video-testimonial-container {
-    max-width: 800px; /* Container ki max-width ko kam kiya */
+    max-width: 800px;
     margin: 2rem auto;
     border: 1px solid #e30a13;
     box-shadow: 0 0 3px rgba(227, 10, 19, 0.7);
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    padding-bottom: 56.25%; /* 9:16 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
     animation: red-pulse 2s infinite ease-in-out;
 }
@@ -390,8 +394,8 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Video ko poore container mein fit karne ke liye */
-    transform: rotate(0deg); /* Ab rotation ki zaroorat nahi */
+    object-fit: contain;
+    transform: rotate(0deg);
     transform-origin: center center;
 }
 
