@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (trainerCards.length > 0) {
         trainerCards.forEach(card => {
             card.addEventListener('click', (e) => {
-                // Check if the click was on the card itself, not a child element
                 if (e.target === card || card.contains(e.target)) {
                     const name = card.getAttribute('data-name');
                     const bio = card.getAttribute('data-bio');
