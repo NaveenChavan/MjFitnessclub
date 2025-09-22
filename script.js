@@ -1,26 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // For trainer bio modal - FIXED VERSION
+    // For trainer bio modal
     const trainerCards = document.querySelectorAll('.trainer-card');
     const modal = document.getElementById('bioModal');
     const trainerNameElement = document.getElementById('trainerName');
     const trainerBioElement = document.getElementById('trainerBio');
     const closeButton = document.querySelector('.close-button');
 
-    // Function to open modal
     function openModal(name, bio) {
         trainerNameElement.textContent = name;
         trainerBioElement.textContent = bio;
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        document.body.style.overflow = 'hidden';
     }
 
-    // Function to close modal
     function closeModal() {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
+        document.body.style.overflow = 'auto';
     }
 
-    // Add click event to all trainer cards
     if (trainerCards.length > 0) {
         trainerCards.forEach(card => {
             card.addEventListener('click', (e) => {
@@ -33,26 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close modal when close button is clicked
     if (closeButton) {
         closeButton.addEventListener('click', closeModal);
     }
 
-    // Close modal when clicking outside of modal content
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             closeModal();
         }
     });
 
-    // Close modal with Escape key
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && modal.style.display === 'block') {
             closeModal();
         }
     });
 
-    // Navigation background on scroll - FIXED (using class instead of inline style)
+    // Navigation background on scroll
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
@@ -62,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // For hamburger menu - FIXED
+    // For hamburger menu
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
     const body = document.querySelector('body');
@@ -72,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
             hamburgerMenu.classList.toggle('active');
             
-            // Body scroll lock/unlock
             if (navLinks.classList.contains('active')) {
                 body.style.overflow = 'hidden';
             } else {
@@ -102,10 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
             slideshowImages[currentImageIndex].classList.add('active');
         }
         
-        // Show the first image on page load
         slideshowImages[currentImageIndex].classList.add('active');
         
-        // Change image every 3 seconds (3000ms)
         setInterval(showNextImage, 3000);
     }
 
@@ -127,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
             slides[currentSlide].classList.add('active');
         }
 
-        // Next slide
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
                 currentSlide++;
@@ -135,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Previous slide
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
                 currentSlide--;
@@ -143,13 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Auto slide every 5 seconds
         setInterval(() => {
             currentSlide++;
             showSlide(currentSlide);
         }, 5000);
     }
 
-    // Initialize testimonial slider
     initTestimonialSlider();
 });
