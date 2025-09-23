@@ -1,198 +1,231 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // For trainer bio modal
-    const trainerCards = document.querySelectorAll('.trainer-card');
-    const modal = document.getElementById('bioModal');
-    const trainerNameElement = document.getElementById('trainerName');
-    const trainerBioElement = document.getElementById('trainerBio');
-    const closeButton = document.querySelector('.close-button');
+// script.js - Complete JavaScript for all pages
 
-    if (trainerCards.length > 0) {
-        trainerCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                const name = card.getAttribute('data-name');
-                const bio = card.getAttribute('data-bio');
-                
-                trainerNameElement.textContent = name;
-                trainerBioElement.textContent = bio;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
+// Mobile Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
     }
-
-    if (closeButton) {
-        closeButton.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-    }
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Navigation background on scroll
-    window.addEventListener('scroll', () => {
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
+        if (window.scrollY > 100) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
     });
-
-    // For hamburger menu
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const body = document.querySelector('body');
-
-    if (hamburgerMenu && navLinks) {
-        hamburgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburgerMenu.classList.toggle('active');
-            
-            if (navLinks.classList.contains('active')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = 'auto';
-            }
-        });
-
-        const navLinksItems = document.querySelectorAll('.nav-links a');
-        navLinksItems.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburgerMenu.classList.remove('active');
-                body.style.overflow = 'auto';
-            });
-        });
-    }
-
-    // For gallery slideshow
-    const slideshowImages = document.querySelectorAll('.slideshow-image');
-    if (slideshowImages.length > 0) {
-        let currentImageIndex = 0;
-        
-        function showNextImage() {
-            slideshowImages[currentImageIndex].classList.remove('active');
-            currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-            slideshowImages[currentImageIndex].classList.add('active');
-        }
-        
-        slideshowImages[currentImageIndex].classList.add('active');
-        setInterval(showNextImage, 3000);
-    }
-
-    // Testimonial Slideshow Functionality
-    function initTestimonialSlider() {
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const prevBtn = document.querySelector('.testimonial-prev');
-        const nextBtn = document.querySelector('.testimonial-next');
-        let currentSlide = 0;
-
-        if (slides.length === 0) return;
-
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            
-            if (index >= slides.length) currentSlide = 0;
-            if (index < 0) currentSlide = slides.length - 1;
-            
-            slides[currentSlide].classList.add('active');
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                currentSlide++;
-                showSlide(currentSlide);
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                currentSlide--;
-                showSlide(currentSlide);
-            });
-        }
-
-        setInterval(() => {
-            currentSlide++;
-            showSlide(currentSlide);
-        }, 5000);
-    }
-
-    initTestimonialSlider();
-
-    // PLAN SELECTION FUNCTIONALITY
-    const selectPlanButtons = document.querySelectorAll('.select-plan-btn');
     
-    if (selectPlanButtons.length > 0) {
-        selectPlanButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const selectedPlan = this.getAttribute('data-plan');
-                
-                // Store the selected plan in localStorage
-                localStorage.setItem('selectedPlan', selectedPlan);
-                
-                // Redirect to contact page
-                window.location.href = 'contact.html';
-            });
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    });
+    
+    // Initialize based on current page
+    const currentPage = window.location.pathname.split('/').pop();
+    initializePageFunctions(currentPage);
+});
+
+function initializePageFunctions(page) {
+    switch(page) {
+        case 'gallery.html':
+            initGallery();
+            break;
+        case 'testimonials.html':
+            initTestimonials();
+            break;
+        case 'about.html':
+            initTrainerModals();
+            break;
+        case 'pricing.html':
+            initPricing();
+            break;
+        case 'contact.html':
+            initContact();
+            break;
+        default:
+            // Home page or other pages
+            break;
+    }
+}
+
+// Gallery Slideshow
+function initGallery() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slideshow-image');
+    const totalSlides = slides.length;
+    
+    if (slides.length === 0) return;
+    
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        currentSlide = (n + totalSlides) % totalSlides;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+    
+    // Auto slide every 5 seconds
+    setInterval(nextSlide, 5000);
+    
+    // Show first slide immediately
+    showSlide(0);
+}
+
+// Testimonials Slider
+function initTestimonials() {
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial-slide');
+    const totalTestimonials = testimonials.length;
+    const prevBtn = document.querySelector('.testimonial-prev');
+    const nextBtn = document.querySelector('.testimonial-next');
+    
+    if (testimonials.length === 0) return;
+    
+    function showTestimonial(n) {
+        testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+        currentTestimonial = (n + totalTestimonials) % totalTestimonials;
+        testimonials[currentTestimonial].classList.add('active');
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => showTestimonial(currentTestimonial - 1));
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => showTestimonial(currentTestimonial + 1));
+    }
+    
+    // Auto slide every 8 seconds
+    setInterval(() => showTestimonial(currentTestimonial + 1), 8000);
+    
+    // Show first testimonial immediately
+    showTestimonial(0);
+}
+
+// Trainer Bio Modals
+function initTrainerModals() {
+    const trainerCards = document.querySelectorAll('.trainer-card');
+    const modal = document.getElementById('bioModal');
+    const modalName = document.getElementById('trainerName');
+    const modalBio = document.getElementById('trainerBio');
+    const closeBtn = document.querySelector('.close-button');
+    
+    if (!modal) return;
+    
+    trainerCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const name = this.getAttribute('data-name');
+            const bio = this.getAttribute('data-bio');
+            
+            modalName.textContent = name;
+            modalBio.textContent = bio;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
     }
+    
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
-    // CONTACT PAGE FUNCTIONALITY - Update WhatsApp links based on selected plan
+// Pricing Plan Selection
+function initPricing() {
+    const planButtons = document.querySelectorAll('.select-plan-btn');
+    
+    planButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const plan = this.getAttribute('data-plan');
+            const planName = this.parentElement.querySelector('h3').textContent;
+            
+            // Store selected plan in localStorage
+            localStorage.setItem('selectedPlan', plan);
+            localStorage.setItem('selectedPlanName', planName);
+            
+            // Redirect to contact page
+            window.location.href = 'contact.html';
+        });
+    });
+}
+
+// Contact Page Plan Display
+function initContact() {
+    const selectedPlan = localStorage.getItem('selectedPlan');
+    const selectedPlanName = localStorage.getItem('selectedPlanName');
+    const planInfo = document.getElementById('selectedPlanInfo');
+    const planNameSpan = document.getElementById('planName');
+    const planDetailsSpan = document.getElementById('planDetails');
     const whatsappLink = document.getElementById('whatsappLink');
-    const floatingWhatsapp = document.getElementById('floatingWhatsapp');
-    const selectedPlanInfo = document.getElementById('selectedPlanInfo');
-    const planNameElement = document.getElementById('planName');
-    const planDetailsElement = document.getElementById('planDetails');
     
-    if (whatsappLink && floatingWhatsapp) {
-        const selectedPlan = localStorage.getItem('selectedPlan');
+    if (selectedPlan && planInfo && planNameSpan && planDetailsSpan) {
+        planNameSpan.textContent = selectedPlanName;
+        planDetailsSpan.textContent = selectedPlan;
+        planInfo.style.display = 'block';
         
-        if (selectedPlan) {
-            // Show selected plan information
-            selectedPlanInfo.style.display = 'block';
-            
-            let planName = '';
-            let planDetails = '';
-            let whatsappMessage = '';
-            
-            switch(selectedPlan) {
-                case 'individual':
-                    planName = 'Individual Plan';
-                    planDetails = 'Individual Plan (Monthly: Rs. 3,500, 3 Months: Rs. 9,000, 6 Months: Rs. 15,000, 1 Year: Rs. 23,000)';
-                    whatsappMessage = 'Hello MJ Fitness Club, I am interested in joining your Individual Plan. Please provide me with more details.';
-                    break;
-                case 'couple':
-                    planName = 'Couple Plan';
-                    planDetails = 'Couple Plan (6 Months: Rs. 24,000, 1 Year: Rs. 36,000)';
-                    whatsappMessage = 'Hello MJ Fitness Club, I am interested in joining your Couple Plan. Please provide me with more details.';
-                    break;
-                case 'buddy':
-                    planName = 'Buddy Plan';
-                    planDetails = 'Buddy Plan (3 Months: Rs. 15,000, 6 Months: Rs. 27,000)';
-                    whatsappMessage = 'Hello MJ Fitness Club, I am interested in joining your Buddy Plan. Please provide me with more details.';
-                    break;
-            }
-            
-            // Update plan information display
-            planNameElement.textContent = planName;
-            planDetailsElement.textContent = planDetails;
-            
-            // Encode the message for WhatsApp
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappURL = `https://wa.me/918861433786?text=${encodedMessage}`;
-            
-            // Update both WhatsApp links
-            whatsappLink.href = whatsappURL;
-            floatingWhatsapp.href = whatsappURL;
-            
-            // Clear the stored plan after use (optional)
-            // localStorage.removeItem('selectedPlan');
+        // Update WhatsApp link with plan info
+        if (whatsappLink) {
+            const message = `Hello MJ Fitness Club, I'm interested in the ${selectedPlanName} (${selectedPlan} plan). Please provide more details.`;
+            whatsappLink.href = `https://wa.me/918861433786?text=${encodeURIComponent(message)}`;
         }
+        
+        // Clear localStorage after displaying
+        localStorage.removeItem('selectedPlan');
+        localStorage.removeItem('selectedPlanName');
     }
+}
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Fade in elements on scroll
+const fadeElements = document.querySelectorAll('.fade-in');
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            fadeObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+fadeElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    fadeObserver.observe(el);
 });
