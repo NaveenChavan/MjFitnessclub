@@ -850,7 +850,75 @@ testimonial-next:hover {
 
     .hero-small .hero-content h1 {
         font-size: 2.5rem;
-        margin-bottom: 0;
+        mar/* Plan Selection Buttons */
+.select-plan-btn {
+    background: #e30a13;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.select-plan-btn:hover {
+    background: #c20811;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(227, 10, 19, 0.3);
+}
+
+/* Selected Plan Information */
+.selected-plan-info {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+    border-left: 4px solid #e30a13;
+}
+
+.selected-plan-info h3 {
+    color: #e30a13;
+    margin-bottom: 1rem;
+}
+
+.selected-plan-info p {
+    color: #bbb;
+    font-size: 1.1rem;
+}
+
+/* Plan Card Hover Effects */
+.plan-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(227, 10, 19, 0.2);
+}
+
+.plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(227, 10, 19, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.plan-card:hover::before {
+    left: 100%;
+}gin-bottom: 0;
         margin-top: 0;
     }
 }
+

@@ -37,7 +37,7 @@
             <h2>Pricing & Membership</h2>
             <p>We offer a variety of plans designed to fit your fitness goals and lifestyle.</p>
             <div class="plans-grid">
-                <div class="plan-card">
+                <div class="plan-card" data-plan="individual">
                     <h3>Individual Plan</h3>
                     <ul>
                         <li>Monthly: <span class="price">Rs. 3,500</span></li>
@@ -45,20 +45,23 @@
                         <li>6 Months: <span class="price">Rs. 15,000</span></li>
                         <li>1 Year: <span class="price">Rs. 23,000</span></li>
                     </ul>
+                    <button class="select-plan-btn" data-plan="individual">Select This Plan</button>
                 </div>
-                <div class="plan-card">
+                <div class="plan-card" data-plan="couple">
                     <h3>Couple Plan</h3>
                     <ul>
                         <li>6 Months: <span class="price">Rs. 24,000</span></li>
                         <li>1 Year: <span class="price">Rs. 36,000</span></li>
                     </ul>
+                    <button class="select-plan-btn" data-plan="couple">Select This Plan</button>
                 </div>
-                <div class="plan-card">
+                <div class="plan-card" data-plan="buddy">
                     <h3>Buddy Plan</h3>
                     <ul>
                         <li>3 Months: <span class="price">Rs. 15,000</span></li>
                         <li>6 Months: <span class="price">Rs. 27,000</span></li>
                     </ul>
+                    <button class="select-plan-btn" data-plan="buddy">Select This Plan</button>
                 </div>
             </div>
             <p class="note">**A Lifetime Admission Fee of Rs. 1,000 is required for all plans.</p>
@@ -68,6 +71,13 @@
     <footer class="footer">
         <p>&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
     </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="script.js" defer></script>
 </body>

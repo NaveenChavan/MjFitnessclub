@@ -35,24 +35,29 @@
     <main>
         <section id="contact" class="contact-section">
             <h2>Contact Us</h2>
-            <!-- <p>For more details, feel free to call us or visit our club.</p> -->
+            <p>For more details, feel free to call us or visit our club.</p>
             
             <div class="contact-info">
                 <p><i class="fas fa-map-marker-alt"></i> Azad Nagar, Station Road, Raichur-584101</p>
                 <p><i class="fas fa-phone-alt"></i> +91 88614 33786</p>
-                <p><i class="fas fa-phone-alt"></i> +91 88611 51786</p>
+                <p><i class="fas fa-phone-alt"></i> +91 88611 51766</p>
                 
-                <!-- WhatsApp Contact -->
+                <!-- Dynamic WhatsApp Contact based on selected plan -->
                 <p class="whatsapp-contact">
                     <i class="fab fa-whatsapp"></i> 
-                    <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank">
+                    <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" id="whatsappLink">
                         +91 88614 33786 (WhatsApp)
                     </a>
                 </p>
             </div>
             
+            <div class="selected-plan-info" id="selectedPlanInfo" style="display: none;">
+                <h3>Selected Plan: <span id="planName"></span></h3>
+                <p>We're excited to have you join us with the <strong id="planDetails"></strong> plan!</p>
+            </div>
+            
             <div class="whatsapp-note">
-                <p><i class="fas fa-info-circle"></i> Click the WhatsApp number to chat with us directly!</p>
+                <p><i class="fas fa-info-circle"></i> Click the WhatsApp number to chat with us directly about your selected plan!</p>
             </div>
         </section>
     </main>
@@ -63,11 +68,11 @@
 
     <!-- WhatsApp Chat Button -->
     <div class="whatsapp-chat">
-        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" class="whatsapp-btn" id="floatingWhatsapp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
     <script src="script.js" defer></script>
 </body>
-</html> 
+</html>
