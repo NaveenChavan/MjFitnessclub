@@ -12,7 +12,7 @@ body {
     background-color: #000;
     line-height: 1.6;
     color: #fff;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
@@ -1041,4 +1041,4 @@ section {
 
 .banner-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1f
+    grid-template-columns

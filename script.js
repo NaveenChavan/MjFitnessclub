@@ -4,12 +4,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
+    const body = document.querySelector('body');
     
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
             hamburger.innerHTML = navLinks.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            
+            // Body scroll lock/unlock for a better mobile experience
+            if (navLinks.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = 'auto';
+            }
         });
     }
     
@@ -28,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            body.style.overflow = 'auto'; // Unlock body scroll
         });
     });
     
