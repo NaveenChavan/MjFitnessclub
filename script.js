@@ -12,11 +12,11 @@ function initializeWebsite() {
     initNavigation();
     initScrollEffects();
     initPageSpecificFeatures();
-    initAnimations();
     initSmoothScrolling();
+    initImageLoading();
 }
 
-// Navigation System
+// Navigation System - FIXED
 function initNavigation() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
@@ -41,17 +41,22 @@ function initNavigation() {
 
         // Close menu when clicking on links
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                hamburger.classList.remove('active');
-                body.style.overflow = 'auto';
+            link.addEventListener('click', (e) => {
+                // Only close if it's mobile view
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    hamburger.classList.remove('active');
+                    body.style.overflow = 'auto';
+                }
             });
         });
 
-        // Close menu when clicking outside
+        // Close menu when clicking outside (mobile only)
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
+            if (window.innerWidth <= 768 && 
+                !e.target.closest('.navbar') && 
+                navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 hamburger.innerHTML = '<i class="fas fa-bars"></i>';
                 hamburger.classList.remove('active');
@@ -68,12 +73,22 @@ function initNavigation() {
                 body.style.overflow = 'auto';
             }
         });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                hamburger.classList.remove('active');
+                body.style.overflow = 'auto';
+            }
+        });
     }
 
     // Navbar Scroll Effect
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 100) {
+        if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
@@ -83,32 +98,24 @@ function initNavigation() {
 
 // Scroll Effects
 function initScrollEffects() {
-    // Parallax Effect for Hero Section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelector('.hero-section');
-        if (parallax) {
-            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
-
     // Active Navigation Link Highlight
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
     window.addEventListener('scroll', function() {
         let current = '';
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
+            const sectionTop = section.offsetTop - 100;
             const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - 200)) {
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
             }
         });
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
+            const href = link.getAttribute('href');
+            if (href === `#${current}` || (current === '' && href === '#home')) {
                 link.classList.add('active');
             }
         });
@@ -117,7 +124,7 @@ function initScrollEffects() {
 
 // Page Specific Features
 function initPageSpecificFeatures() {
-    const currentPage = window.location.pathname.split('/').pop();
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
     switch(currentPage) {
         case 'gallery.html':
@@ -139,7 +146,6 @@ function initPageSpecificFeatures() {
             initVideoPlayers();
             break;
         default:
-            // Home page features
             initHomePageFeatures();
             break;
     }
@@ -150,32 +156,28 @@ function initHomePageFeatures() {
     // Banner Stats Counter Animation
     const statNumbers = document.querySelectorAll('.stat-number');
     if (statNumbers.length > 0) {
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.textContent);
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    stat.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    stat.textContent = Math.floor(current) + '+';
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.textContent);
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            entry.target.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            entry.target.textContent = Math.floor(current) + '+';
+                        }
+                    }, 30);
+                    observer.unobserve(entry.target);
                 }
-            }, 20);
-        });
-    }
+            });
+        }, { threshold: 0.5 });
 
-    // Instagram Feed Hover Effects
-    const instagramPosts = document.querySelectorAll('.instagram-post');
-    instagramPosts.forEach(post => {
-        post.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05) rotate(2deg)';
-        });
-        post.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
-        });
-    });
+        statNumbers.forEach(stat => observer.observe(stat));
+    }
 }
 
 // Gallery Slideshow
@@ -190,7 +192,7 @@ function initGallery() {
     }
 
     // Auto slide every 5 seconds
-    const slideInterval = setInterval(() => {
+    let slideInterval = setInterval(() => {
         showSlide(currentSlide + 1);
     }, 5000);
 
@@ -199,7 +201,7 @@ function initGallery() {
     if (slideshowContainer) {
         slideshowContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
         slideshowContainer.addEventListener('mouseleave', () => {
-            setInterval(() => {
+            slideInterval = setInterval(() => {
                 showSlide(currentSlide + 1);
             }, 5000);
         });
@@ -239,10 +241,7 @@ function initTestimonials() {
 function initTrainerModals() {
     const trainerCards = document.querySelectorAll('.trainer-card');
     const modal = document.getElementById('bioModal');
-    const modalName = document.getElementById('trainerName');
-    const modalBio = document.getElementById('trainerBio');
-    const closeBtn = document.querySelector('.close-button');
-
+    
     if (!modal) return;
 
     trainerCards.forEach(card => {
@@ -250,13 +249,14 @@ function initTrainerModals() {
             const name = this.getAttribute('data-name');
             const bio = this.getAttribute('data-bio');
             
-            modalName.textContent = name;
-            modalBio.textContent = bio;
+            document.getElementById('trainerName').textContent = name;
+            document.getElementById('trainerBio').textContent = bio;
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         });
     });
 
+    const closeBtn = document.querySelector('.close-button');
     if (closeBtn) {
         closeBtn.addEventListener('click', function() {
             modal.style.display = 'none';
@@ -281,17 +281,12 @@ function initPricing() {
             const plan = this.getAttribute('data-plan');
             const planName = this.parentElement.querySelector('h3').textContent;
             
-            // Add loading animation
-            this.innerHTML = '<span class="loading-spinner"></span> Selecting...';
+            // Store selected plan
+            localStorage.setItem('selectedPlan', plan);
+            localStorage.setItem('selectedPlanName', planName);
             
-            setTimeout(() => {
-                // Store selected plan
-                localStorage.setItem('selectedPlan', plan);
-                localStorage.setItem('selectedPlanName', planName);
-                
-                // Redirect to contact page
-                window.location.href = 'contact.html';
-            }, 1000);
+            // Redirect to contact page
+            window.location.href = 'contact.html';
         });
     });
 }
@@ -313,10 +308,6 @@ function initContact() {
             const message = `Hello MJ Fitness Club, I'm interested in the ${selectedPlanName} (${selectedPlan} plan). Please provide more details.`;
             whatsappLink.href = `https://wa.me/918861433786?text=${encodeURIComponent(message)}`;
         }
-        
-        // Clear storage after use
-        localStorage.removeItem('selectedPlan');
-        localStorage.removeItem('selectedPlanName');
     }
 }
 
@@ -324,13 +315,7 @@ function initContact() {
 function initVideoPlayers() {
     const videos = document.querySelectorAll('video');
     videos.forEach(video => {
-        video.addEventListener('mouseenter', function() {
-            this.play();
-        });
-        video.addEventListener('mouseleave', function() {
-            this.pause();
-            this.currentTime = 0;
-        });
+        video.controls = true;
     });
 }
 
@@ -350,49 +335,25 @@ function initSmoothScrolling() {
     });
 }
 
-// Scroll Animations
-function initAnimations() {
-    const fadeElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    fadeElements.forEach(el => {
-        el.style.animationPlayState = 'paused';
-        observer.observe(el);
-    });
-}
-
-// Performance Optimization
-window.addEventListener('load', function() {
-    // Lazy loading for images
+// Image Loading Optimization
+function initImageLoading() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         img.loading = 'lazy';
+        // Add error handling
+        img.onerror = function() {
+            this.style.display = 'none';
+            console.log('Image failed to load:', this.src);
+        };
     });
-
-    // Remove loading animations
-    const loaders = document.querySelectorAll('.loading-spinner');
-    loaders.forEach(loader => loader.remove());
-});
+}
 
 // Error Handling
 window.addEventListener('error', function(e) {
     console.error('Website Error:', e.error);
 });
 
-// Export functions for global access
-window.MJFitness = {
-    initNavigation,
-    initGallery,
-    initTestimonials,
-    initTrainerModals,
-    initPricing,
-    initContact
-};
+// Initialize when window loads
+window.addEventListener('load', function() {
+    console.log('MJ Fitness Club Website Loaded Successfully!');
+});
