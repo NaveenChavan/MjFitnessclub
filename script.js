@@ -1,6 +1,7 @@
 // script.js - Complete JavaScript for all pages
 
-// Mobile Navigation Toggle
+
+// Mobile menu improvement
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
@@ -9,37 +10,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
-            hamburger.innerHTML = navLinks.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            hamburger.classList.toggle('active');
             
-            // Body scroll lock/unlock for a better mobile experience
+            // Better icon toggle
             if (navLinks.classList.contains('active')) {
+                hamburger.innerHTML = '<i class="fas fa-times"></i>';
                 body.style.overflow = 'hidden';
             } else {
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
                 body.style.overflow = 'auto';
             }
         });
     }
     
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    
-    // Close mobile menu when clicking on links
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            body.style.overflow = 'auto'; // Unlock body scroll
-        });
+            body.style.overflow = 'auto';
+        }
     });
-    
+});
     // Initialize based on current page
     const currentPage = window.location.pathname.split('/').pop();
     initializePageFunctions(currentPage);
