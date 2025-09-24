@@ -160,6 +160,8 @@ h2::after {
     text-align: center;
     position: relative;
     overflow: hidden;
+    /* Added padding to prevent navbar from hiding content */
+    padding-top: 100px;
 }
 
 .hero-small {
@@ -313,6 +315,8 @@ h2::after {
 section {
     padding: 4rem 0;
     position: relative;
+    /* Added padding to prevent navbar from hiding content */
+    padding-top: 100px;
 }
 
 /* Cards Grid */
@@ -338,7 +342,7 @@ section {
     border-radius: 15px;
     text-align: center;
     border: 2px solid #333;
-    transition: var(--transition);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border-color 0.4s ease-in-out;
     position: relative;
     overflow: hidden;
 }
@@ -404,6 +408,19 @@ section {
     border-radius: 10px;
 }
 
+/* Testimonial Animation */
+.testimonial-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.testimonial-text.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 /* Mobile Responsive Design - IMPROVED */
 @media (max-width: 768px) {
     .container {
@@ -458,6 +475,7 @@ section {
     .hero-section {
         min-height: 100vh;
         padding: 0 1rem;
+        padding-top: 100px; /* Added padding to prevent navbar from hiding content */
     }
 
     .hero-content h1 {
@@ -506,10 +524,6 @@ section {
     .banner-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
-    }
-
-    .stat-number {
-        font-size: 2rem;
     }
 
     /* Instagram Feed Mobile */
@@ -640,4 +654,4 @@ section {
 
 .whatsapp-btn:hover {
     transform: scale(1.1);
-        }
+}
