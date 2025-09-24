@@ -1042,3 +1042,171 @@ section {
 .banner-stats {
     display: grid;
     grid-template-columns
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    /* Navigation */
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+    
+    .nav-links a {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+    
+    .hamburger-menu {
+        display: block;
+    }
+    
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    /* Grid Layouts */
+    .trainer-grid,
+    .service-grid,
+    .plans-grid,
+    .clips-grid,
+    .pt-plans-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Sections */
+    section {
+        padding: 3rem 1rem;
+        margin: 1rem 0;
+    }
+    
+    /* Slideshow */
+    .slideshow-container {
+        height: 300px;
+        margin: 1.5rem auto;
+    }
+    
+    /* Timetable */
+    .timetable-container {
+        margin: 1.5rem auto;
+        overflow-x: auto;
+    }
+    
+    .timetable {
+        min-width: 600px;
+    }
+    
+    .timetable th,
+    .timetable td {
+        padding: 1rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Cards */
+    .trainer-card,
+    .service-card,
+    .plan-card,
+    .pt-plan-card {
+        padding: 1.5rem 1rem;
+        margin: 0.5rem 0;
+    }
+    
+    .trainer-card img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    /* Contact Info */
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .contact-info p {
+        font-size: 1rem;
+        justify-content: flex-start;
+    }
+    
+    /* Instagram Feed */
+    .instagram-feed {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .instagram-post {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    section {
+        padding: 2rem 0.5rem;
+    }
+    
+    .instagram-feed {
+        grid-template-columns: 1fr;
+    }
+}
