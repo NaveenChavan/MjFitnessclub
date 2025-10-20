@@ -1,5 +1,68 @@
-// MJ FITNESS CLUB - Professional JavaScript
+// MJ FITNESS CLUB - PREMIUM JAVASCRIPT
+// Video Optimization Script - script.js me add karen
+function optimizeVideos() {
+    const videos = document.querySelectorAll('.video-player');
+    
+    videos.forEach(video => {
+        // Lazy loading for videos
+        video.setAttribute('loading', 'lazy');
+        video.setAttribute('preload', 'metadata');
+        
+        // Add loading state
+        video.addEventListener('loadstart', function() {
+            const container = this.parentElement;
+            const loading = document.createElement('div');
+            loading.className = 'video-loading';
+            container.appendChild(loading);
+        });
+        
+        // Remove loading state when video can play
+        video.addEventListener('canplay', function() {
+            const container = this.parentElement;
+            const loading = container.querySelector('.video-loading');
+            const thumbnail = container.querySelector('.video-thumbnail');
+            
+            if (loading) loading.remove();
+            if (thumbnail) thumbnail.classList.add('hidden');
+        });
+        
+        // Handle thumbnail click to play video
+        const thumbnail = video.parentElement.querySelector('.video-thumbnail');
+        if (thumbnail) {
+            thumbnail.addEventListener('click', function() {
+                video.play();
+                this.classList.add('hidden');
+            });
+        }
+        
+        // Show thumbnail when video ends
+        video.addEventListener('ended', function() {
+            const thumbnail = this.parentElement.querySelector('.video-thumbnail');
+            if (thumbnail) {
+                thumbnail.classList.remove('hidden');
+            }
+        });
+    });
+}
+
+// Document ready me call karen
 document.addEventListener('DOMContentLoaded', function() {
+    // ... existing code ...
+    
+    // Video optimization call karen
+    optimizeVideos();
+    
+    // ... rest of the code ...
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Loading Screen
+    const loading = document.getElementById('loading');
+    if (loading) {
+        setTimeout(() => {
+            loading.classList.add('hidden');
+        }, 1000);
+    }
+
     // Mobile Navigation
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -97,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: center;
             z-index: 2000;
             animation: fadeIn 0.3s ease;
+            padding: 20px;
         `;
 
         modal.innerHTML = `
@@ -105,9 +169,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 padding: 2rem;
                 border-radius: 12px;
                 max-width: 500px;
-                width: 90%;
+                width: 100%;
                 border: 2px solid #dc2626;
                 position: relative;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             ">
                 <span class="close-modal" style="
                     position: absolute;
@@ -124,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     cursor: pointer;
                     font-weight: bold;
                     font-size: 1.2rem;
+                    transition: all 0.3s ease;
                 ">&times;</span>
                 <h3 style="color: #dc2626; margin-bottom: 1rem; font-size: 1.5rem;">${trainerName}</h3>
                 <p style="color: #e5e5e5; line-height: 1.6; font-size: 1rem;">${trainerBio}</p>
@@ -166,9 +232,12 @@ document.addEventListener('DOMContentLoaded', function() {
             animation: slideIn 0.3s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         `;
         notification.innerHTML = `
-            <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+            <i class="fas fa-check-circle"></i>
             ${message}
         `;
         
@@ -193,14 +262,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Fade in elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.trust-card, .review-card, .service-card, .trainer-card, .pricing-card, .gallery-item').forEach(el => {
+        observer.observe(el);
+    });
+
     // Add CSS for animations
     const style = document.createElement('style');
     style.textContent = `
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
         @keyframes slideIn {
             from { 
                 opacity: 0;
@@ -218,21 +300,11 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    console.log('MJ Fitness Club Website Loaded Successfully!');
+    console.log('MJ Fitness Club Premium Website Loaded Successfully!');
 });
 
 // WhatsApp direct message function
 function sendWhatsApp(message) {
     const url = `https://wa.me/916366729324?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
-}
-
-// Call button enhancement
-function enhanceCallButtons() {
-    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-        link.addEventListener('click', function() {
-            // Track phone call clicks if needed
-            console.log('Phone call initiated:', this.href);
-        });
-    });
 }
