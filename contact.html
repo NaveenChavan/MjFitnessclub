@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -28,9 +33,9 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Contact Us</h1>
-            <p class="hero-subtitle">Get Started on Your Fitness Journey Today</p>
-            <div class="offer-banner">
+            <h1 class="fade-in">Contact Us</h1>
+            <p class="hero-subtitle fade-in delay-1">Get Started on Your Fitness Journey Today</p>
+            <div class="offer-banner fade-in delay-2">
                 <div class="discount-badge">5% OFF</div>
                 <p>Use Code: <strong class="coupon-code">MJFITNESS5</strong></p>
             </div>
@@ -41,13 +46,13 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h2>Get In Touch</h2>
-                    <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">
+                    <h2 class="fade-in">Get In Touch</h2>
+                    <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;" class="fade-in delay-1">
                         Ready to transform your life? Contact us directly for personalized guidance and special offers. 
                         We're here to help you start your fitness journey.
                     </p>
                     
-                    <div class="contact-item">
+                    <div class="contact-item fade-in delay-1">
                         <i class="fas fa-user"></i>
                         <div>
                             <h3>Your Personal Contact</h3>
@@ -55,7 +60,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-item">
+                    <div class="contact-item fade-in delay-2">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h3>Call Directly</h3>
@@ -64,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-item">
+                    <div class="contact-item fade-in delay-2">
                         <i class="fab fa-whatsapp"></i>
                         <div>
                             <h3>WhatsApp</h3>
@@ -73,7 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-item">
+                    <div class="contact-item fade-in delay-3">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h3>Visit Our Gym</h3>
@@ -84,7 +89,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-buttons">
+                    <div class="contact-buttons fade-in delay-3">
                         <a href="tel:9731133425" class="btn btn-primary" style="min-height: 50px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-phone"></i> Call Now
                         </a>
@@ -94,7 +99,7 @@
                     </div>
                 </div>
 
-                <div class="map-section">
+                <div class="map-section fade-in delay-2">
                     <h3>Find Us Here</h3>
                     <div class="map-container">
                         <iframe 
@@ -153,14 +158,17 @@
         </div>
     </section>
 
+    <!-- Enhanced Timetable Section -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Gym Timetable</h2>
+            
+            <!-- Desktop Timetable -->
             <div class="timetable-container">
                 <table class="timetable">
                     <thead>
                         <tr>
-                            <th>Session</th>
+                            <th>Session Type</th>
                             <th>Timing</th>
                             <th>Details</th>
                         </tr>
@@ -168,36 +176,69 @@
                     <tbody>
                         <tr>
                             <td class="session-type">Morning Unisex Batch</td>
-                            <td>05:00 AM - 11:30 AM</td>
-                            <td>Open for all members</td>
+                            <td class="session-time">05:00 AM - 11:30 AM</td>
+                            <td class="session-details">Open for all members - Mixed gender training</td>
                         </tr>
                         <tr>
-                            <td class="session-type">Women's Batch</td>
-                            <td>12:00 PM - 03:00 PM</td>
-                            <td>Women only - Men not allowed</td>
+                            <td class="session-type">Women's Exclusive Batch</td>
+                            <td class="session-time">12:00 PM - 03:00 PM</td>
+                            <td class="session-details">Women only - Private and comfortable environment</td>
                         </tr>
                         <tr>
                             <td class="session-type">Evening Unisex Batch</td>
-                            <td>03:30 PM - 10:00 PM</td>
-                            <td>Open for all members</td>
+                            <td class="session-time">03:30 PM - 10:00 PM</td>
+                            <td class="session-details">Open for all members - Peak hours training</td>
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- Mobile Timetable -->
+                <div class="mobile-timetable">
+                    <div class="timetable-card">
+                        <div class="timetable-card-header">
+                            <span class="session-badge">Unisex</span>
+                            <span class="session-time-mobile">05:00 AM - 11:30 AM</span>
+                        </div>
+                        <h4>Morning Batch</h4>
+                        <p class="session-desc-mobile">Open for all members - Start your day with energy</p>
+                    </div>
+                    
+                    <div class="timetable-card">
+                        <div class="timetable-card-header">
+                            <span class="session-badge session-women">Women Only</span>
+                            <span class="session-time-mobile">12:00 PM - 03:00 PM</span>
+                        </div>
+                        <h4>Women's Exclusive</h4>
+                        <p class="session-desc-mobile">Private and comfortable environment for women</p>
+                    </div>
+                    
+                    <div class="timetable-card">
+                        <div class="timetable-card-header">
+                            <span class="session-badge">Unisex</span>
+                            <span class="session-time-mobile">03:30 PM - 10:00 PM</span>
+                        </div>
+                        <h4>Evening Batch</h4>
+                        <p class="session-desc-mobile">Open for all members - Post-work training sessions</p>
+                    </div>
+                </div>
+
                 <div class="timetable-note">
-                    <p><i class="fas fa-clock"></i> Closing Time: 10:15 PM | <i class="fas fa-calendar-times"></i> Sunday: Rest Day</p>
+                    <p><i class="fas fa-clock"></i> Closing Time: 10:15 PM</p>
+                    <p><i class="fas fa-calendar-times"></i> Sunday: Weekly Rest Day</p>
+                    <p><i class="fas fa-dumbbell"></i> Last Entry: 09:45 PM</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="section" style="background: var(--dark); padding: 3rem 0; text-align: center;">
+    <footer class="section">
         <div class="container">
-            <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-                <a href="https://www.instagram.com/mjfitness_club" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
+            <div class="social-links">
+                <a href="https://www.instagram.com/mjfitness_club" class="social-link" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/916366729324" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
+                <a href="https://wa.me/916366729324" class="social-link" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
