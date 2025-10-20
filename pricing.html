@@ -8,158 +8,165 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="hero-section hero-small">
-        <nav class="navbar">
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <img src="logo.jpeg" alt="MJ Fitness Club Logo">
+                <img src="logo.jpeg" alt="MJ Fitness Club" class="logo-img">
+                <span class="logo-text">MJ FITNESS CLUB</span>
             </div>
-            <button class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="training-clips.html">Training Clips</a></li>
-                <li><a href="supplements.html">Supplements</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-        <div class="hero-content">
-            <h1>PRICING</h1>
-            <p>Affordable Plans for Your Fitness Journey</p>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="pricing-section">
-            <h2>Membership Plans</h2>
-            <p>We offer a variety of plans designed to fit your fitness goals and lifestyle.</p>
-            <div class="plans-grid">
-                <div class="plan-card" data-plan="individual">
-                    <h3>Individual Plan</h3>
-                    <ul>
-                        <li>Monthly: <span class="price">Rs. 3,500</span></li>
-                        <li>3 Months: <span class="price">Rs. 9,000</span></li>
-                        <li>6 Months: <span class="price">Rs. 15,000</span></li>
-                        <li>1 Year: <span class="price">Rs. 23,000</span></li>
-                    </ul>
-                    <button class="select-plan-btn" data-plan="individual">Select This Plan</button>
-                </div>
-                <div class="plan-card" data-plan="couple">
-                    <h3>Couple Plan</h3>
-                    <ul>
-                        <li>6 Months: <span class="price">Rs. 24,000</span></li>
-                        <li>1 Year: <span class="price">Rs. 36,000</span></li>
-                    </ul>
-                    <button class="select-plan-btn" data-plan="couple">Select This Plan</button>
-                </div>
-                <div class="plan-card" data-plan="buddy">
-                    <h3>Buddy Plan</h3>
-                    <ul>
-                        <li>3 Months: <span class="price">Rs. 15,000</span></li>
-                        <li>6 Months: <span class="price">Rs. 27,000</span></li>
-                    </ul>
-                    <button class="select-plan-btn" data-plan="buddy">Select This Plan</button>
-                </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Membership Plans</h1>
+            <p class="hero-subtitle">Affordable Pricing with Premium Facilities</p>
+            <div class="offer-banner">
+                <div class="discount-badge">5% OFF</div>
+                <p>Use Code: <strong class="coupon-code">MJFITNESS5</strong> on First Admission</p>
             </div>
-            <p class="note">**A Lifetime Admission Fee of Rs. 1,000 is required for all plans.</p>
-        </section>
+        </div>
+    </section>
 
-        <!-- Personal Training Section -->
-        <section class="personal-training-section">
-            <h2>Personal Training Plans</h2>
-            <p>Get personalized attention and faster results with our certified trainers.</p>
-            
-            <div class="pt-plans-grid">
-                <div class="pt-plan-card">
-                    <h4>General Trainer</h4>
-                    <div class="pt-price">Rs. 5,000/month</div>
-                    <ul class="pt-features">
-                        <li>1 Month: Rs. 5,000</li>
-                        <li>3 Months: Rs. 12,500</li>
-                        <li>6 Months: Rs. 24,000</li>
-                        <li>1 Year: Rs. 42,000</li>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Individual Plan</h3>
+                        <div class="price">₹3,500<span>/month</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Full Gym Access</li>
+                        <li><i class="fas fa-check"></i> All Equipment</li>
+                        <li><i class="fas fa-check"></i> Group Classes</li>
+                        <li><i class="fas fa-check"></i> Locker Room</li>
+                        <li><i class="fas fa-check"></i> Trainer Guidance</li>
                     </ul>
-                    <p><i class="fas fa-check"></i> Separate Time & Focus</p>
+                    <button class="btn btn-primary select-plan" 
+                            data-plan="Individual Plan" 
+                            data-price="₹3,500/month">
+                        Select Plan
+                    </button>
+                    <div class="plan-duration">
+                        <p><strong>3 Months:</strong> ₹9,000</p>
+                        <p><strong>6 Months:</strong> ₹15,000</p>
+                        <p><strong>1 Year:</strong> ₹23,000</p>
+                    </div>
                 </div>
-                
-                <div class="pt-plan-card">
-                    <h4>Experienced Trainer</h4>
-                    <div class="pt-price">Rs. 7,500/month</div>
-                    <ul class="pt-features">
-                        <li>1 Month: Rs. 7,500</li>
-                        <li>3 Months: Rs. 21,000</li>
-                        <li>6 Months: Rs. 36,000</li>
-                        <li>1 Year: Rs. 60,000</li>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="plan-header">
+                        <h3>Couple Plan</h3>
+                        <div class="price">₹4,000<span>/month</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Everything in Individual</li>
+                        <li><i class="fas fa-check"></i> For 2 People</li>
+                        <li><i class="fas fa-check"></i> Save 15% Each</li>
+                        <li><i class="fas fa-check"></i> Joint Sessions</li>
+                        <li><i class="fas fa-check"></i> Family Discount</li>
                     </ul>
-                    <p><i class="fas fa-check"></i> Separate Time & Focus + Diet Plans</p>
+                    <button class="btn btn-primary select-plan" 
+                            data-plan="Couple Plan" 
+                            data-price="₹4,000/month per person">
+                        Select Plan
+                    </button>
+                    <div class="plan-duration">
+                        <p><strong>6 Months:</strong> ₹24,000</p>
+                        <p><strong>1 Year:</strong> ₹36,000</p>
+                    </div>
                 </div>
-                
-                <div class="pt-plan-card">
-                    <h4>Premium Trainer</h4>
-                    <div class="pt-price">Rs. 10,000/month</div>
-                    <ul class="pt-features">
-                        <li>1 Month: Rs. 10,000</li>
-                        <li>3 Months: Rs. 27,000</li>
-                        <li>6 Months: Rs. 48,000</li>
-                        <li>1 Year: Rs. 84,000</li>
+
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Buddy Plan</h3>
+                        <div class="price">₹2,500<span>/month</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Bring 1 Friend</li>
+                        <li><i class="fas fa-check"></i> Group Discount</li>
+                        <li><i class="fas fa-check"></i> All Facilities</li>
+                        <li><i class="fas fa-check"></i> Flexible Timing</li>
+                        <li><i class="fas fa-check"></i> Workout Together</li>
                     </ul>
-                    <p><i class="fas fa-check"></i> Separate Time & Focus + Diet Plans + Confirmed Results</p>
+                    <button class="btn btn-primary select-plan" 
+                            data-plan="Buddy Plan" 
+                            data-price="₹2,500/month per person">
+                        Select Plan
+                    </button>
+                    <div class="plan-duration">
+                        <p><strong>3 Months:</strong> ₹15,000</p>
+                        <p><strong>6 Months:</strong> ₹27,000</p>
+                    </div>
                 </div>
             </div>
-            
-            <p class="pt-note">Note: Above mentioned plans are apart from gym membership fees</p>
-            
-            <div class="additional-services">
-                <div class="service-item">
-                    <i class="fas fa-lock fa-2x"></i>
-                    <h4>Locker Charges</h4>
-                    <p>6 Months: Rs. 1,299</p>
-                    <p>1 Year: Rs. 1,999</p>
-                </div>
-                
-                <div class="service-item">
-                    <i class="fas fa-spa fa-2x"></i>
-                    <h4>Massage & Shower</h4>
-                    <p>Members: Rs. 1,000</p>
-                    <p>Clients: Rs. 1,250</p>
-                </div>
-                
-                <div class="service-item">
-                    <i class="fas fa-hot-tub fa-2x"></i>
-                    <h4>Steam Bath with Shower</h4>
-                    <p>Members: Rs. 500</p>
-                    <p>Clients: Rs. 1,000</p>
-                </div>
+
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> <strong>One-time Admission Fee:</strong> ₹1,000 (Applicable for all plans)</p>
+                <p><i class="fas fa-tag"></i> <strong>5% Discount:</strong> Use code <strong>MJFITNESS5</strong> on your first admission</p>
+                <p><i class="fas fa-clock"></i> <strong>Flexible Timing:</strong> 5:00 AM - 10:00 PM (Monday to Saturday)</p>
             </div>
-        </section>
-    </main>
-    
-    <footer class="footer">
-        <div class="footer-social">
-            <div class="social-links">
-                <a href="https://www.instagram.com/mjfitness_club" class="social-link instagram" target="_blank">
+        </div>
+    </section>
+
+    <!-- Mobile Optimized Contact Form -->
+    <section class="section" style="background: var(--dark-light);">
+        <div class="container">
+            <h2 class="section-title">Get Your 5% Discount</h2>
+            <form class="simple-form" id="pricingForm">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text);">Quick Inquiry</h3>
+                <input type="text" placeholder="Your Name" required id="pricingName">
+                <input type="tel" placeholder="WhatsApp Number" required id="pricingPhone">
+                <select style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px;">
+                    <option value="">Interested Plan</option>
+                    <option>Individual Plan</option>
+                    <option>Couple Plan</option>
+                    <option>Buddy Plan</option>
+                    <option>Personal Training</option>
+                </select>
+                <input type="hidden" name="referred_by" value="YOUR_NAME">
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; min-height: 50px; font-size: 1.1rem;">
+                    <i class="fas fa-tag"></i> Get 5% Discount
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="background: var(--dark); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <a href="https://www.instagram.com/mjfitness_club" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/918861433786" class="social-link whatsapp" target="_blank">
+                <a href="https://wa.me/916366729324" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
+            <p style="color: var(--text-light);">&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
         </div>
-        <p>&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
     </footer>
 
-    <!-- WhatsApp Chat Button -->
+    <!-- WhatsApp Float Button -->
     <div class="whatsapp-chat">
-        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20pricing" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/916366729324?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20pricing%20plans." 
+           class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>

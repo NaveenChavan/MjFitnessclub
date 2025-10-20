@@ -8,70 +8,247 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="hero-section hero-small">
-        <nav class="navbar">
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <img src="logo.jpeg" alt="MJ Fitness Club Logo">
+                <img src="logo.jpeg" alt="MJ Fitness Club" class="logo-img">
+                <span class="logo-text">MJ FITNESS CLUB</span>
             </div>
-            <button class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="training-clips.html">Training Clips</a></li>
-                <li><a href="supplements.html">Supplements</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-        <div class="hero-content">
-            <h1>GALLERY</h1>
-            <p>Take a Tour of Our World-Class Facility</p>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="gallery-section">
-            <h2>Our Gym Gallery</h2>
-            <p>Explore our state-of-the-art equipment and modern facilities</p>
-            <div class="slideshow-container">
-                <img src="gym1.jpeg" alt="Gym Interior 1" class="slideshow-image active">
-                <img src="gym2.jpeg" alt="Gym Interior 2" class="slideshow-image">
-                <img src="gym3.jpeg" alt="Cardio area" class="slideshow-image">
-                <img src="gym4.jpeg" alt="Free weights section" class="slideshow-image">
-                <img src="gym6.jpeg" alt="Workout area" class="slideshow-image">
-                <img src="gym7.jpeg" alt="Gym picture 7" class="slideshow-image">
-                <img src="gym8.jpeg" alt="Gym picture 8" class="slideshow-image">
-                <img src="gym9.jpeg" alt="Gym picture 9" class="slideshow-image">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Gym Gallery</h1>
+            <p class="hero-subtitle">Explore Our World-Class Facilities & Equipment</p>
+            <div class="offer-banner">
+                <div class="discount-badge">5% OFF</div>
+                <p>Use Code: <strong class="coupon-code">MJFITNESS5</strong></p>
             </div>
-        </section>
-    </main>
-    
-    <footer class="footer">
-        <div class="footer-social">
-            <div class="social-links">
-                <a href="https://www.instagram.com/mjfitness_club" class="social-link instagram" target="_blank">
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Gym Facilities</h2>
+            <div class="gallery-grid">
+
+                  <div class="gallery-item">
+                    <img src="gym8.jpeg" alt="Reception Area" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Reception Area</h3>
+                        <p>Welcome to MJ Fitness Club</p>
+                    </div>
+                </div>
+
+
+                <div class="gallery-item">
+                    <img src="gym2.jpeg" alt="Gym Interior 1" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Main Workout Area</h3>
+                        <p>Spacious and well-equipped training space</p>
+                    </div>
+                </div>
+
+               
+                <div class="gallery-item">
+                    <img src="gym1.jpeg" alt="Gym Interior 2" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Cardio Zone</h3>
+                        <p>Treadmills, cycles & ellipticals</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gym3.jpeg" alt="Free Weights Area" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Free Weights</h3>
+                        <p>Dumbbells</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gym4.jpeg" alt="Machine Area" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Strength Machines</h3>
+                        <p>Modern strength training equipment</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gym6.jpeg" alt="Group Training" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Group Classes plateform</h3>
+                        <p>Zumba, Yoga & fitness sessions</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gym5.jpeg" alt="Supplements Store" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Supplements Store</h3>
+                        <p>Genuine supplements available</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gym7.jpeg" alt="Locker Room" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Locker Facilities</h3>
+                        <p>Secure storage for members</p>
+                    </div>
+                </div>
+
+               
+                <div class="gallery-item">
+                    <img src="gym9.jpeg" alt="Training Area" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Training Space</h3>
+                        <p>Professional training environment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--dark-light);">
+        <div class="container">
+            <h2 class="section-title">Training Videos</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Watch our professional trainers demonstrate proper techniques for various exercises. 
+                Learn the correct form to maximize your results and prevent injuries.
+            </p>
+            <div class="videos-grid">
+                <div class="video-item">
+                    <video controls class="video-player" poster="training-poster1.jpg">
+                        <source src="training1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h4>Strength Training Basics</h4>
+                        <p>Proper form for deadlifts and squats</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video controls class="video-player" poster="training-poster2.jpg">
+                        <source src="training2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h4>Cardio Techniques</h4>
+                        <p>Maximizing your cardio workouts</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video controls class="video-player" poster="training-poster3.jpg">
+                        <source src="training3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h4>Hypertrophy Training</h4>
+                        <p>Muscle building techniques</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video controls class="video-player" poster="training-poster4.jpg">
+                        <source src="training4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h4>CrossFit Workouts</h4>
+                        <p>High-intensity functional training</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Member Transformations</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Weight Loss Journey</h3>
+                        <p>15kg weight loss in 6 months</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(135deg, #059669, #047857); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="fas fa-muscle"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Muscle Building</h3>
+                        <p>8kg muscle gain in 4 months</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(135deg, #dc2626, #b91c1c); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Fitness Transformation</h3>
+                        <p>Complete body transformation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Form -->
+    <section class="section" style="background: var(--dark-light);">
+        <div class="container">
+            <h2 class="section-title">Like What You See?</h2>
+            <form class="simple-form" id="galleryForm">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text);">Schedule a Gym Tour</h3>
+                <input type="text" placeholder="Your Name" required id="galleryName">
+                <input type="tel" placeholder="WhatsApp Number" required id="galleryPhone">
+                <input type="hidden" name="referred_by" value="YOUR_NAME">
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    <i class="fas fa-calendar"></i> Schedule Visit
+                </button>
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                    Come see our facilities in person
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="background: var(--dark); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <a href="https://www.instagram.com/mjfitness_club" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/918861433786" class="social-link whatsapp" target="_blank">
+                <a href="https://wa.me/916366729324" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
+            <p style="color: var(--text-light);">&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
         </div>
-        <p>&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
     </footer>
 
-    <!-- WhatsApp Chat Button -->
+    <!-- WhatsApp Float Button -->
     <div class="whatsapp-chat">
-        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20gym" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/916366729324?text=Hello%20MJ%20Fitness%20Club,%20I%20saw%20your%20gallery%20and%20want%20to%20visit%20the%20gym." 
+           class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>

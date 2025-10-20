@@ -8,109 +8,150 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="hero-section hero-small">
-        <nav class="navbar">
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <img src="logo.jpeg" alt="MJ Fitness Club Logo">
+                <img src="logo.jpeg" alt="MJ Fitness Club" class="logo-img">
+                <span class="logo-text">MJ FITNESS CLUB</span>
             </div>
-            <button class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="training-clips.html">Training Clips</a></li>
-                <li><a href="supplements.html">Supplements</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-        <div class="hero-content">
-            <h1>ABOUT US</h1>
-            <p>Meet Our Expert Team of Professional Trainers</p>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="about-section">
-            <h2>Our Story</h2>
-            <p>Welcome to MJ Fitness Club, Raichur's premier destination for health and fitness. Our mission is to provide a motivating and supportive environment where every member can achieve their personal best. With world-class equipment and a team of dedicated trainers, we're here to guide you on your journey to a stronger, healthier you.</p>
-            
-            <h2>Our Expert Trainers</h2>
-            <div class="trainer-grid">
-                <div class="trainer-card" data-name="Shakeel" data-bio="As the manager of MJ Fitness Club, Shakeel brings years of experience and a passion for fitness to the gym floor. He is dedicated to creating a motivating environment where every member feels supported and encouraged to achieve their health goals. Shakeel believes that consistency is key, and his leadership ensures that every workout is a step toward a stronger you.">
-                    <img src="shakeel.jpeg" alt="Shakeel - Gym Manager">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Meet Our Expert Trainers</h1>
+            <p class="hero-subtitle">7+ Certified Professionals Guiding Your Fitness Journey</p>
+            <div class="offer-banner">
+                <div class="discount-badge">5% OFF</div>
+                <p>Use Code: <strong class="coupon-code">MJFITNESS5</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem;">
+                    Welcome to MJ Fitness Club, Raichur's premier destination for health and fitness. 
+                    Our mission is to provide a motivating and supportive environment where every member 
+                    can achieve their personal best. With world-class equipment and a team of dedicated 
+                    trainers, we're here to guide you on your journey to a stronger, healthier you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--dark-light);">
+        <div class="container">
+            <h2 class="section-title">Our Expert Trainers</h2>
+            <div class="trainers-grid">
+                <div class="trainer-card" onclick="openTrainerModal('Shakeel', 'Gym Manager with 4+ years experience. Specialized in strength training and body transformation. Leads our team with dedication and expertise. Helped 300+ clients achieve their fitness goals.')">
+                    <img src="shakeel.jpeg" alt="Shakeel - Gym Manager" class="trainer-img">
                     <h3>Shakeel</h3>
                     <p>Gym Manager</p>
+                    <span class="trainer-exp">4+ Years Experience</span>
                 </div>
-                <div class="trainer-card" data-name="Arshad" data-bio="As a senior trainer at MJ Fitness Club, Arshad is a highly experienced and dedicated fitness professional. With a deep understanding of body mechanics and advanced training techniques, he guides members toward their goals with precision and care. Arshad believes in building not just strong bodies, but strong foundations for a lifetime of health.">
-                    <img src="arshad.jpeg" alt="Arshad - Senior Trainer">
+                
+                <div class="trainer-card" onclick="openTrainerModal('Arshad', 'Senior Trainer with 10+ years expertise in bodybuilding and nutrition. Certified in advanced fitness training. Helped 200+ clients achieve their fitness goals with personalized workout plans and diet guidance.')">
+                    <img src="arshad.jpeg" alt="Arshad - Senior Trainer" class="trainer-img">
                     <h3>Arshad</h3>
                     <p>Senior Trainer</p>
+                    <span class="trainer-exp">10+ Years Experience</span>
                 </div>
-                <div class="trainer-card" data-name="Fuzail" data-bio="Dedicated to pushing the limits of strength and transformation, Fuzail brings an intense and focused approach to fitness. With a strong belief in discipline and hard work, he specializes in helping members build muscle and achieve their dream physique. Fuzail's passion is to inspire others to be the best version of themselves, inside and out.">
-                    <img src="fuzail.jpeg" alt="Fuzail - Trainer">
+
+                 <div class="trainer-card" onclick="openTrainerModal('Naveen Chavan', 'Best Trainer with Diploma in Physical Fitness. Holistic approach combining strength, discipline and mindset. 4+ years experience in fitness industry with 500+ successful transformations.')">
+                    <img src="naveen_chavan.jpeg" alt="Naveen Chavan - Founder" class="trainer-img">
+                    <h3>Naveen Chavan</h3>
+                    <p>Founder & Trainer</p>
+                    <span class="trainer-exp">4+ Years Experience</span>
+                    <span class="certification">Diploma in Physical Fitness</span>
+                </div>
+
+                <!-- <div class="trainer-card" onclick="openTrainerModal('Fuzail', 'Certified Personal Trainer specializing in muscle building and strength conditioning. Passionate about transforming physiques. Expert in weight training and body sculpting techniques.')">
+                    <img src="fuzail.jpeg" alt="Fuzail - Trainer" class="trainer-img">
                     <h3>Fuzail</h3>
                     <p>Certified Trainer</p>
-                </div>
-                <div class="trainer-card" data-name="Gouse" data-bio="Gouse is an encouraging and dedicated trainer at MJ Fitness Club, passionate about making fitness a positive experience for everyone. He believes that a healthy lifestyle is for everyone, regardless of their fitness level. Gouse works with each member to build a personalized plan, ensuring they stay motivated and happy on their fitness journey.">
-                    <img src="gouse.jpeg" alt="Gouse - Trainer">
+                    <span class="trainer-exp">5+ Years Experience</span>
+                </div> -->
+
+                <div class="trainer-card" onclick="openTrainerModal('Gouse', 'Motivational trainer with expertise in beginner fitness programs. Creates supportive and positive workout environment. Specializes in weight loss and fitness foundation building.')">
+                    <img src="gouse.jpeg" alt="Gouse - Trainer" class="trainer-img">
                     <h3>Gouse</h3>
                     <p>Certified Trainer</p>
+                    <span class="trainer-exp">5+ Years Experience</span>
                 </div>
-                <div class="trainer-card" data-name="Prashant" data-bio="With a focus on proper form and powerful technique, Prashant is a dedicated trainer who helps members unlock their true strength potential. He brings a strong background in muscle building and conditioning, crafting workout plans that are both challenging and effective. Prashant is committed to guiding you on a journey to a stronger, more confident self.">
-                    <img src="prashant.jpeg" alt="Prashant - Trainer">
+
+                <div class="trainer-card" onclick="openTrainerModal('Prashant', 'Strength and conditioning specialist. Focuses on proper form and technique for maximum results and injury prevention. Expert in functional training and mobility.')">
+                    <img src="prashant.jpeg" alt="Prashant - Trainer" class="trainer-img">
                     <h3>Prashant</h3>
                     <p>Certified Trainer</p>
+                    <span class="trainer-exp">5+ Years Experience</span>
                 </div>
-                <div class="trainer-card" data-name="Naveen Reddy" data-bio="A dynamic and modern trainer at MJ Fitness Club, Naveen Reddy brings a fresh perspective to the world of fitness. With a focus on innovative workouts and a passion for helping members find their stride, he makes every training session both fun and effective. Naveen is dedicated to building strong, confident, and healthy individuals.">
-                    <img src="naveen_reddy.jpeg" alt="Naveen Reddy - Trainer">
+
+                <div class="trainer-card" onclick="openTrainerModal('Naveen Reddy', 'Dynamic trainer with modern workout techniques. Specializes in functional training and endurance building. Expert in high-intensity interval training (HIIT).')">
+                    <img src="naveen_reddy.jpeg" alt="Naveen Reddy - Trainer" class="trainer-img">
                     <h3>Naveen Reddy</h3>
                     <p>Certified Trainer</p>
+                    <span class="trainer-exp">4+ Years Experience</span>
                 </div>
-                <div class="trainer-card" data-name="Naveen Chavan" data-bio="As the founder and a passionate trainer at MJ Fitness Club, Naveen Chavan is on a mission to bring world-class fitness to his community. He believes in a holistic approach to wellness, combining strength, discipline, and a positive mindset. Naveen is dedicated to building a gym that is more than just a place to work out—it's a place to transform.">
-                    <img src="naveen_chavan.jpeg" alt="Naveen Chavan - Founder & Trainer">
-                    <h3>Naveen Chavan</h3>
-                    <p>Certified Trainer</p>
-                    <p>DIPLOMA IN PHYSICAL FITNESS</p>
-                </div>
+
+               
             </div>
-        </section>
-    </main>
-    
-    <footer class="footer">
-        <div class="footer-social">
-            <div class="social-links">
-                <a href="https://www.instagram.com/mjfitness_club" class="social-link instagram" target="_blank">
+        </div>
+    </section>
+
+    <!-- Quick Contact Form -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Start Training with Experts</h2>
+            <form class="simple-form" id="aboutForm">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text);">Get Personal Training Consultation</h3>
+                <input type="text" placeholder="Your Name" required id="aboutName">
+                <input type="tel" placeholder="WhatsApp Number" required id="aboutPhone">
+                <input type="hidden" name="referred_by" value="YOUR_NAME">
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    <i class="fas fa-dumbbell"></i> Get Free Consultation
+                </button>
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                    Our trainers will contact you personally
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="background: var(--dark-light); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <a href="https://www.instagram.com/mjfitness_club" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/918861433786" class="social-link whatsapp" target="_blank">
+                <a href="https://wa.me/916366729324" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
+            <p style="color: var(--text-light);">&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
         </div>
-        <p>&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
     </footer>
 
-    <!-- Trainer Bio Modal -->
-    <div id="bioModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 id="trainerName"></h3>
-            <p id="trainerBio"></p>
-        </div>
-    </div>
-
-    <!-- WhatsApp Chat Button -->
+    <!-- WhatsApp Float Button -->
     <div class="whatsapp-chat">
-        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20trainers" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/916366729324?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20trainers%20and%20personal%20training." 
+           class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>

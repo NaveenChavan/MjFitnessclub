@@ -8,87 +8,229 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="hero-section hero-small">
-        <nav class="navbar">
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <img src="logo.jpeg" alt="MJ Fitness Club Logo">
+                <img src="logo.jpeg" alt="MJ Fitness Club" class="logo-img">
+                <span class="logo-text">MJ FITNESS CLUB</span>
             </div>
-            <button class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="training-clips.html">Training Clips</a></li>
-                <li><a href="supplements.html">Supplements</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-        <div class="hero-content">
-            <h1>OUR SERVICES</h1>
-            <p>Comprehensive Fitness Programs for Everyone</p>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
-    </header>
-    
-    <main>
-        <section class="services-section">
-            <h2>Our Fitness Services</h2>
-            <p>We offer a wide range of fitness programs designed to meet your individual needs and goals.</p>
-            
-            <div class="service-grid">
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Fitness Programs</h1>
+            <p class="hero-subtitle">Comprehensive Services for All Your Fitness Needs</p>
+            <div class="offer-banner">
+                <div class="discount-badge">5% OFF</div>
+                <p>Use Code: <strong class="coupon-code">MJFITNESS5</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Fitness Programs</h2>
+            <div class="services-grid">
                 <div class="service-card">
+                    <i class="fas fa-dumbbell"></i>
                     <h3>Strength Training</h3>
-                    <p>Build muscle and increase strength with our specialized programs. Our trainers guide you through every lift to ensure proper form and maximum results.</p>
+                    <p>Build muscle and increase strength with specialized programs and proper form guidance. Perfect for beginners and advanced lifters.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
+                        <li>Personalized workout plans</li>
+                        <li>Form correction & technique</li>
+                        <li>Progress tracking</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <h3>Hypertrophy</h3>
-                    <p>Focus on muscle growth and sculpting your physique. We use advanced techniques to help you achieve your aesthetic goals.</p>
+                    <i class="fas fa-running"></i>
+                    <h3>Hypertrophy Training</h3>
+                    <p>Focus on muscle growth and physique sculpting with advanced techniques for maximum muscle development.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
+                        <li>Muscle building programs</li>
+                        <li>Volume training</li>
+                        <li>Recovery guidance</li>
+                    </ul>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-music"></i>
                     <h3>Zumba</h3>
-                    <p>Dance your way to fitness! Our high-energy Zumba classes are a fun and effective way to burn calories and improve cardiovascular health.</p>
+                    <p>Dance your way to fitness with high-energy fun workouts that burn calories and improve cardiovascular health.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
+                        <li>Fun group sessions</li>
+                        <li>Full-body workout</li>
+                        <li>Stress relief</li>
+                    </ul>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-spa"></i>
                     <h3>Yoga</h3>
-                    <p>Improve flexibility, balance, and mental well-being. Our yoga sessions are designed for all levels, helping you find peace and strength.</p>
+                    <p>Improve flexibility, balance, and mental well-being with guided yoga sessions for all experience levels.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
+                        <li>Flexibility improvement</li>
+                        <li>Stress reduction</li>
+                        <li>Mind-body connection</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <h3>Cardio</h3>
-                    <p>Boost your endurance and heart health. Our cardio section includes state-of-the-art treadmills, ellipticals, and cycles.</p>
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Cardio Training</h3>
+                    <p>Boost endurance and heart health with state-of-the-art equipment including treadmills, ellipticals, and cycles.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
+                        <li>Fat burning programs</li>
+                        <li>Heart health improvement</li>
+                        <li>Stamina building</li>
+                    </ul>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-fire"></i>
                     <h3>CrossFit</h3>
-                    <p>Challenge your limits with high-intensity functional workouts. CrossFit combines strength, cardio, and agility for a full-body transformation.</p>
+                    <p>High-intensity functional workouts that combine strength, cardio, and agility for full-body transformation.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
+                        <li>Functional movements</li>
+                        <li>High-intensity workouts</li>
+                        <li>Community training</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </main>
-    
-    <footer class="footer">
-        <div class="footer-social">
-            <div class="social-links">
-                <a href="https://www.instagram.com/mjfitness_club" class="social-link instagram" target="_blank">
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--dark-light);">
+        <div class="container">
+            <h2 class="section-title">Additional Facilities</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-hot-tub"></i>
+                    <h3>Steam Bath</h3>
+                    <p>Relax and detoxify with our modern steam bath facilities. Perfect for muscle recovery after intense workouts.</p>
+                    <p style="color: var(--primary); margin-top: 1rem; font-weight: 600;">
+                        Members: ₹500 | Clients: ₹1,000
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shower"></i>
+                    <h3>Massage & Shower</h3>
+                    <p>Professional massage therapy and clean shower facilities for complete post-workout recovery and refreshment.</p>
+                    <p style="color: var(--primary); margin-top: 1rem; font-weight: 600;">
+                        Members: ₹1,000 | Clients: ₹1,250
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Locker Facilities</h3>
+                    <p>Secure locker facilities to keep your belongings safe during workouts. Available for both short and long term.</p>
+                    <p style="color: var(--primary); margin-top: 1rem; font-weight: 600;">
+                        6 Months: ₹1,299 | 1 Year: ₹1,999
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Premium Supplements Store</h2>
+            <div class="supplement-content">
+                <h3 style="color: var(--text); margin-bottom: 1.5rem; font-size: 1.8rem;">100% Genuine Supplements</h3>
+                <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.7;">
+                    Get the best quality supplements to fuel your fitness journey. We offer a wide range of top brands 
+                    including whey protein, BCAAs, creatine, pre-workouts, and vitamins to help you achieve your goals faster and safely.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                    <div style="background: var(--dark); padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-capsules" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--text); margin-bottom: 0.5rem;">Whey Protein</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Muscle recovery & growth</p>
+                    </div>
+                    <div style="background: var(--dark); padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-weight" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--text); margin-bottom: 0.5rem;">Mass Gainers</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Healthy weight gain</p>
+                    </div>
+                    <div style="background: var(--dark); padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-bolt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--text); margin-bottom: 0.5rem;">Pre-Workout</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Energy & performance</p>
+                    </div>
+                    <div style="background: var(--dark); padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-fire" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--text); margin-bottom: 0.5rem;">Fat Burners</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Weight loss support</p>
+                    </div>
+                </div>
+
+                <p style="color: var(--accent); font-weight: 600; margin: 1.5rem 0;">
+                    <i class="fas fa-shield-alt"></i> All supplements are 100% authentic with verified expiry dates
+                </p>
+                
+                <a href="https://wa.me/916366729324?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20about%20your%20supplements%20and%20prices." 
+                   class="btn btn-primary" target="_blank" style="margin-top: 1rem;">
+                   <i class="fab fa-whatsapp"></i> Inquire About Supplements
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Form -->
+    <section class="section" style="background: var(--dark-light);">
+        <div class="container">
+            <h2 class="section-title">Ready to Get Started?</h2>
+            <form class="simple-form" id="servicesForm">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text);">Choose Your Program</h3>
+                <input type="text" placeholder="Your Name" required id="servicesName">
+                <input type="tel" placeholder="WhatsApp Number" required id="servicesPhone">
+                <select style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 1rem;">
+                    <option value="">Select Program</option>
+                    <option>Strength Training</option>
+                    <option>Hypertrophy Training</option>
+                    <option>Zumba</option>
+                    <option>Yoga</option>
+                    <option>Cardio Training</option>
+                    <option>CrossFit</option>
+                    <option>Supplements Inquiry</option>
+                </select>
+                <input type="hidden" name="referred_by" value="YOUR_NAME">
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    <i class="fas fa-dumbbell"></i> Get Program Details
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="background: var(--dark); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <a href="https://www.instagram.com/mjfitness_club" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/918861433786" class="social-link whatsapp" target="_blank">
+                <a href="https://wa.me/916366729324" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
+            <p style="color: var(--text-light);">&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
         </div>
-        <p>&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
     </footer>
-    
-    <!-- WhatsApp Chat Button -->
+
+    <!-- WhatsApp Float Button -->
     <div class="whatsapp-chat">
-        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/916366729324?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20fitness%20programs." 
+           class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>

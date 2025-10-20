@@ -4,109 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MJ Fitness Club - Raichur's Best Gym</title>
+    <meta name="description" content="MJ Fitness Club - Raichur's premium gym with professional trainers, modern equipment. Get 5% discount with code MJFITNESS5">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="hero-section">
-        <nav class="navbar">
+    <!-- Navigation with Logo -->
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <img src="logo.jpeg" alt="MJ Fitness Club Logo">
+                <img src="logo.jpeg" alt="MJ Fitness Club" class="logo-img">
+                <span class="logo-text">MJ FITNESS CLUB</span>
             </div>
-            <button class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="training-clips.html">Training Clips</a></li>
-                <li><a href="supplements.html">Supplements</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Background -->
+    <section class="hero">
         <div class="hero-content">
-            <h1>MJ FITNESS CLUB</h1>
-            <p>LET'S MAKE RAICHURIANS FIT</p>
-            <a href="pricing.html" class="cta-button">Join Now!</a>
-        </div>
-    </header>
+            <!-- <img src="bgimage1.jpg" -->
+            <h1>Transform Your Body, Transform Your Life</h1>
+            <p class="hero-subtitle">Raichur's Most Advanced Fitness Facility with Certified Trainers & Premium Equipment</p>
+            
+            <!-- 5% Discount Banner -->
+            <div class="offer-banner">
+                <div class="discount-badge">5% OFF</div>
+                <p>Use Code: <strong class="coupon-code">MJFITNESS5</strong> on Your First Admission</p>
+            </div>
 
-    <!-- Banner Section -->
-    <section class="banner-section">
-        <div class="banner-content">
-            <h2>Transform Your Life at MJ Fitness Club</h2>
-            <p>Raichur's premier fitness destination with world-class facilities and expert trainers</p>
-            
-            <div class="banner-stats">
-                <div class="stat-item">
-                    <span class="stat-number">7+</span>
-                    <span class="stat-label">Professional Trainers</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Happy Members</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">6</span>
-                    <span class="stat-label">Fitness Programs</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Hours Daily</span>
-                </div>
+            <div class="cta-buttons">
+                <a href="pricing.html" class="btn btn-primary">View Plans</a>
+                <a href="contact.html" class="btn btn-secondary">Free Trial</a>
             </div>
-            
-            <div class="motivational-quote">
-                "IF YOU DON'T FIND THE TIME, IF YOU DON'T DO THE WORK, YOU DON'T GET THE RESULTS"
-                <br>- ARNOLD SCHWARZENEGGER
-            </div>
-            
-            <p><strong>VISIT ONCE - You won't Leave without Enrolling Your Membership!</strong></p>
         </div>
     </section>
 
-    <!-- Instagram Section -->
-    <section class="instagram-section">
-        <h2>Follow Us on Instagram</h2>
-        <p>Check out our latest updates, member transformations, and gym life!</p>
-        
-        <div class="instagram-feed">
-            <img src="instagram1.jpeg" alt="MJ Fitness Instagram Post 1" class="instagram-post">
-            <img src="instagram2.jpeg" alt="MJ Fitness Instagram Post 2" class="instagram-post">
-            <img src="instagram3.jpeg" alt="MJ Fitness Instagram Post 3" class="instagram-post">
-            <img src="instagram4.jpeg" alt="MJ Fitness Instagram Post 4" class="instagram-post">
+    <!-- Trust Section -->
+    <section class="section trust-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose MJ Fitness Club?</h2>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Modern Equipment</h3>
+                    <p>Imported machines from international brands for best results</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Certified Trainers</h3>
+                    <p>7+ professional trainers with 5+ years experience</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Flexible Timing</h3>
+                    <p>Open from 5 AM to 10 PM, 6 days a week</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fas fa-award"></i>
+                    <h3>Proven Results</h3>
+                    <p>500+ successful transformations in Raichur</p>
+                </div>
+            </div>
         </div>
-        
-        <a href="https://www.instagram.com/mjfitness_club" class="instagram-link" target="_blank">
-            <i class="fab fa-instagram"></i> Follow @mjfitness_club
-        </a>
     </section>
 
-    <footer class="footer">
-        <div class="footer-social">
-            <div class="social-links">
-                <a href="https://www.instagram.com/mjfitness_club" class="social-link instagram" target="_blank">
+    <!-- Quick Contact Form -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Start Your Journey Today</h2>
+            <form class="simple-form" id="homeForm">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text);">Get 5% Discount on Admission</h3>
+                <input type="text" placeholder="Your Name" required id="homeName">
+                <input type="tel" placeholder="WhatsApp Number" required id="homePhone">
+                <input type="hidden" name="referred_by" value="YOUR_NAME">
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    <i class="fas fa-tag"></i> Get 5% Discount
+                </button>
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                    We'll contact you within 30 minutes
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section reviews-section">
+        <div class="container">
+            <h2 class="section-title">What Our Members Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The Ultimate Gold standard Gym of whole Raichur with the best machines and professional trainers. Gains Guaranteed!"</p>
+                    <div class="review-author">- Karan Dialani</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"My second home! Been to many gyms in Bangalore, trust me this is one of the spacious and well-equipped gym."</p>
+                    <div class="review-author">- Samarshekar R</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"One of the best gym ever in Raichur. If you are looking for best equipment then MJ Fitness is the best."</p>
+                    <div class="review-author">- Ayyub Khan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonial -->
+    <section class="section" style="background: var(--dark-light);">
+        <div class="container">
+            <h2 class="section-title">Success Story</h2>
+            <div class="testimonial-video-container">
+                <video controls class="testimonial-video" poster="video-poster.jpg">
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Life?</h2>
+            <p>Join 500+ members who achieved their fitness goals at MJ Fitness Club</p>
+            <div class="cta-buttons">
+                <a href="tel:9731133425" class="btn btn-large btn-primary">
+                    <i class="fas fa-phone"></i> Call Now: 9731133425
+                </a>
+                <a href="https://wa.me/916366729324?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20gym%20and%205%%20discount%20offer." 
+                   class="btn btn-large btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: 6366729324
+                </a>
+            </div>
+            <div class="offer-banner" style="margin-top: 2rem;">
+                <div class="discount-badge">SPECIAL OFFER</div>
+                <p>First 50 Members Get <strong>5% Discount</strong> with code <strong>MJFITNESS5</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="background: var(--dark-light); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <a href="https://www.instagram.com/mjfitness_club" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/918861433786" class="social-link whatsapp" target="_blank">
+                <a href="https://wa.me/916366729324" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
+            <p style="color: var(--text-light);">&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
+            <p style="color: var(--text-light); margin-top: 0.5rem; font-size: 0.9rem;">
+                Station Rd, Azad Nagar, Raichur, Karnataka 584101
+            </p>
         </div>
-        <p>&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
     </footer>
 
-    <!-- WhatsApp Chat Button -->
+    <!-- WhatsApp Float Button -->
     <div class="whatsapp-chat">
-        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/916366729324?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20gym%20and%205%%20discount%20offer." 
+           class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>

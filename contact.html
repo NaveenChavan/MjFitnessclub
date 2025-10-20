@@ -3,79 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - MJ Fitness Club</title>
+    <title>Contact - MJ Fitness Club</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="hero-section hero-small">
-        <nav class="navbar">
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <img src="logo.jpeg" alt="MJ Fitness Club Logo">
+                <img src="logo.jpeg" alt="MJ Fitness Club" class="logo-img">
+                <span class="logo-text">MJ FITNESS CLUB</span>
             </div>
-            <button class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="training-clips.html">Training Clips</a></li>
-                <li><a href="supplements.html">Supplements</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-        <div class="hero-content">
-            <h1>CONTACT US</h1>
-            <p>Get in Touch for Your Fitness Journey</p>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="contact-section">
-            <h2>Contact Information</h2>
-            <p>For more details, feel free to call us or visit our club.</p>
-            
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Azad Nagar, Station Road, Raichur-584101</p>
-                <p><i class="fas fa-phone-alt"></i> +91 88614 33786</p>
-                <p><i class="fas fa-phone-alt"></i> +91 88611 51766</p>
-                
-                <!-- WhatsApp Contact -->
-                <p class="whatsapp-contact">
-                    <i class="fab fa-whatsapp"></i> 
-                    <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" id="whatsappLink">
-                        +91 88614 33786 (WhatsApp)
-                    </a>
-                </p>
-                
-                <!-- Instagram Contact -->
-                <p class="instagram-contact">
-                    <i class="fab fa-instagram"></i> 
-                    <a href="https://www.instagram.com/mjfitness_club" target="_blank" id="instagramLink">
-                        @mjfitness_club (Instagram)
-                    </a>
-                </p>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p class="hero-subtitle">Get Started on Your Fitness Journey Today</p>
+            <div class="offer-banner">
+                <div class="discount-badge">5% OFF</div>
+                <p>Use Code: <strong class="coupon-code">MJFITNESS5</strong></p>
             </div>
-            
-            <div class="selected-plan-info" id="selectedPlanInfo" style="display: none;">
-                <h3>Selected Plan: <span id="planName"></span></h3>
-                <p>We're excited to have you join us with the <strong id="planDetails"></strong> plan!</p>
-            </div>
-            
-            <div class="whatsapp-note">
-                <p><i class="fas fa-info-circle"></i> Click the WhatsApp number to chat with us directly about your selected plan!</p>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Timetable Section -->
-        <section class="timetable-section">
-            <h2>Gym Timetable</h2>
-            <p>Plan your workouts according to our convenient schedule</p>
-            
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">
+                        Ready to transform your life? Contact us directly for personalized guidance and special offers. 
+                        We're here to help you start your fitness journey.
+                    </p>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <h3>Your Personal Contact</h3>
+                            <p style="color: var(--text-light);">Directly reach out for admissions and inquiries</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Call Directly</h3>
+                            <a href="tel:9731133425" class="contact-link">9731133425</a>
+                            <p style="color: var(--text-light);">Available for calls and messages</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/916366729324" class="contact-link" target="_blank">6366729324</a>
+                            <p style="color: var(--text-light);">Quick responses and details</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Visit Our Gym</h3>
+                            <p style="color: var(--text-light);">Station Rd, Azad Nagar, Raichur, Karnataka 584101</p>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">
+                                <strong>Hours:</strong> 5:00 AM - 10:00 PM (Monday-Saturday)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-buttons">
+                        <a href="tel:9731133425" class="btn btn-primary" style="min-height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/916366729324" class="btn btn-whatsapp" target="_blank" style="min-height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="map-section">
+                    <h3>Find Us Here</h3>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.234567890123!2d77.3556789!3d16.2071234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDEyJzI1LjciTiA3N8KwMjEnMjAuNCJF!5e0!3m2!1sen!2sin!4v1234567890" 
+                            width="100%" 
+                            height="300" 
+                            style="border:0; border-radius: 8px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="map-note">
+                        <p><i class="fas fa-info-circle"></i> Located at Station Road, Azad Nagar - Easy to find with ample parking space</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Form -->
+    <section class="section" style="background: var(--dark-light);">
+        <div class="container">
+            <h2 class="section-title">Get Your 5% Discount</h2>
+            <form class="simple-form" id="contactForm" style="max-width: 600px; margin: 0 auto;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text);">Start Your Fitness Journey</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                    <input type="text" placeholder="Your Name" required id="contactName" style="font-size: 16px; height: 50px;">
+                    <input type="tel" placeholder="WhatsApp Number" required id="contactPhone" style="font-size: 16px; height: 50px;">
+                </div>
+                
+                <input type="email" placeholder="Email Address (Optional)" id="contactEmail" style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; height: 50px;">
+                
+                <select style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; height: 50px;">
+                    <option value="">Interested In</option>
+                    <option>Gym Membership</option>
+                    <option>Personal Training</option>
+                    <option>Supplements</option>
+                    <option>Group Classes</option>
+                    <option>All Services</option>
+                </select>
+
+                <textarea placeholder="Your Fitness Goals (Optional)" style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; min-height: 100px; resize: vertical;"></textarea>
+                
+                <input type="hidden" name="referred_by" value="YOUR_NAME">
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; min-height: 50px; font-size: 1.1rem;">
+                    <i class="fas fa-tag"></i> Get 5% Discount
+                </button>
+                
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                    <i class="fas fa-shield-alt"></i> Your information is secure and confidential
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Gym Timetable</h2>
             <div class="timetable-container">
                 <table class="timetable">
                     <thead>
@@ -101,39 +181,41 @@
                             <td>03:30 PM - 10:00 PM</td>
                             <td>Open for all members</td>
                         </tr>
-                        <tr>
-                            <td colspan="3" class="timetable-note">
-                                <i class="fas fa-clock"></i> Closing Time: 10:15 PM | 
-                                <i class="fas fa-calendar-times"></i> Sunday: Rest Day
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
+                <div class="timetable-note">
+                    <p><i class="fas fa-clock"></i> Closing Time: 10:15 PM | <i class="fas fa-calendar-times"></i> Sunday: Rest Day</p>
+                </div>
             </div>
-        </section>
-    </main>
-    
-    <footer class="footer">
-        <div class="footer-social">
-            <div class="social-links">
-                <a href="https://www.instagram.com/mjfitness_club" class="social-link instagram" target="_blank">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="background: var(--dark); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <a href="https://www.instagram.com/mjfitness_club" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/918861433786" class="social-link whatsapp" target="_blank">
+                <a href="https://wa.me/916366729324" class="social-link" target="_blank" style="color: var(--text); font-size: 1.5rem;">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
+            <p style="color: var(--text-light);">&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
+            <p style="color: var(--text-light); margin-top: 0.5rem; font-size: 0.9rem;">
+                Station Rd, Azad Nagar, Raichur, Karnataka 584101
+            </p>
         </div>
-        <p>&copy; 2024 MJ Fitness Club. All Rights Reserved.</p>
     </footer>
 
-    <!-- WhatsApp Chat Button -->
+    <!-- WhatsApp Float Button -->
     <div class="whatsapp-chat">
-        <a href="https://wa.me/918861433786?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" class="whatsapp-btn" id="floatingWhatsapp">
+        <a href="https://wa.me/916366729324?text=Hello%20MJ%20Fitness%20Club,%20I%20want%20to%20know%20more%20about%20your%20gym%20and%20membership." 
+           class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
