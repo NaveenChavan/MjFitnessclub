@@ -181,9 +181,11 @@ body {
 .logo-text {
     color: var(--primary);
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 900; /* Maximum bold weight */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif; /* Ensure bold font is available */
 }
-
 .nav-links {
     display: flex;
     list-style: none;
@@ -1392,6 +1394,13 @@ footer {
     .video-player-container {
         padding-bottom: 60%; /* Slightly taller for mobile */
     }
+    @media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem;
+        font-weight: 900; /* Mobile pe bhi bold rahega */
+        letter-spacing: 1px;
+    }
+}
     
     .timetable-card {
         padding: 1rem;
