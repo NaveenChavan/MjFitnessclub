@@ -125,43 +125,43 @@
         </div>
     </section>
 
-    <!-- Main Contact Form -->
-    <section class="section" style="background: var(--dark-light);">
-        <div class="container">
-            <h2 class="section-title">Get Your 5% Discount</h2>
-            <form class="simple-form" id="contactForm" style="max-width: 600px; margin: 0 auto;">
-                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text);">Start Your Fitness Journey</h3>
-                
-                <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-                    <input type="text" placeholder="Your Name" required id="contactName" style="font-size: 16px; height: 50px;">
-                    <input type="tel" placeholder="WhatsApp Number" required id="contactPhone" style="font-size: 16px; height: 50px;">
-                </div>
-                
-                <input type="email" placeholder="Email Address (Optional)" id="contactEmail" style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; height: 50px;">
-                
-                <select style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; height: 50px;">
-                    <option value="">Interested In</option>
-                    <option>Gym Membership</option>
-                    <option>Personal Training</option>
-                    <option>Supplements</option>
-                    <option>Group Classes</option>
-                    <option>All Services</option>
-                </select>
+  <!-- Main Contact Form -->
+<section class="section" style="background: var(--dark-light);">
+    <div class="container">
+        <h2 class="section-title">Get Your 5% Discount</h2>
+        <form class="simple-form" id="contactForm" style="max-width: 600px; margin: 0 auto;">
+            <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text);">Start Your Fitness Journey</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                <input type="text" placeholder="Your Name" required id="contactName" name="name" style="font-size: 16px; height: 50px;">
+                <input type="tel" placeholder="WhatsApp Number" required id="contactPhone" name="phone" style="font-size: 16px; height: 50px;">
+            </div>
+            
+            <input type="email" placeholder="Email Address (Optional)" id="contactEmail" name="email" style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; height: 50px;">
+            
+            <select id="contactService" name="service" style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; height: 50px;">
+                <option value="">Interested In</option>
+                <option value="Gym Membership">Gym Membership</option>
+                <option value="Personal Training">Personal Training</option>
+                <option value="Supplements">Supplements</option>
+                <option value="Group Classes">Group Classes</option>
+                <option value="All Services">All Services</option>
+            </select>
 
-                <textarea placeholder="Your Fitness Goals (Optional)" style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; min-height: 100px; resize: vertical;"></textarea>
-                
-                <input type="hidden" name="referred_by" value="YOUR_NAME">
-                
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; min-height: 50px; font-size: 1.1rem;">
-                    <i class="fas fa-tag"></i> Get 5% Discount
-                </button>
-                
-                <p style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
-                    <i class="fas fa-shield-alt"></i> Your information is secure and confidential
-                </p>
-            </form>
-        </div>
-    </section>
+            <textarea placeholder="Your Fitness Goals (Optional)" id="contactMessage" name="message" style="width: 100%; padding: 1rem; margin: 0.5rem 0; border: 1px solid #333; border-radius: 8px; background: var(--dark); color: var(--text); font-size: 16px; min-height: 100px; resize: vertical;"></textarea>
+            
+            <input type="hidden" name="referred_by" value="MJFITNESS5">
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; min-height: 50px; font-size: 1.1rem;">
+                <i class="fas fa-tag"></i> Get 5% Discount
+            </button>
+            
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                <i class="fas fa-shield-alt"></i> Your information is secure and confidential
+            </p>
+        </form>
+    </div>
+</section>
 
     <!-- Enhanced Timetable Section -->
     <section class="section">

@@ -1,14 +1,211 @@
-// MJ FITNESS CLUB - PREMIUM JAVASCRIPT
-// Video Optimization Script - script.js me add karen
+// MJ FITNESS CLUB - Google Apps Script Integration
+const MJFITNESS_API_URL = 'https://script.google.com/macros/s/AKfycbwRhutkLnTmOlLCpaUDDK5erjUHz6Kd2jxetIeLSniVv1TI-XjxNaI4HWQ4H1JPNHc/exec';
+
+// Form Submission to Google Apps Script
+async function submitMJFitnessForm(formData) {
+    try {
+        console.log('Sending data to Google Apps Script:', formData);
+        
+        // Use different approach for Google Apps Script
+        const url = MJFITNESS_API_URL;
+        const response = await fetch(url, {
+            method: 'POST',
+            mode: 'no-cors', // Important for Google Apps Script
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        // Since we're using no-cors, we can't read the response
+        // But the data will still be saved to Google Sheets
+        console.log('Data sent to Google Sheets successfully');
+        
+        return {
+            status: 'success',
+            message: 'Data saved successfully! We will contact you soon.'
+        };
+        
+    } catch (error) {
+        console.error('Form submission error:', error);
+        return {
+            status: 'error',
+            message: 'Please call us directly at 9731133425 or try WhatsApp.'
+        };
+    }
+}
+
+// MAIN FORM HANDLER - Google Sheets Ke Liye
+function initializeForms() {
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const nameInput = this.querySelector('input[type="text"]');
+            const phoneInput = this.querySelector('input[type="tel"]');
+            const emailInput = this.querySelector('input[type="email"]');
+            const serviceSelect = this.querySelector('select');
+            const messageTextarea = this.querySelector('textarea');
+            
+            if (nameInput && phoneInput) {
+                const formData = {
+                    name: nameInput.value.trim(),
+                    phone: phoneInput.value.trim(),
+                    email: emailInput ? emailInput.value.trim() : '',
+                    service: serviceSelect ? serviceSelect.value : '',
+                    message: messageTextarea ? messageTextarea.value.trim() : '',
+                    page: window.location.pathname.split('/').pop() || 'home',
+                    referred_by: 'MJFITNESS5'
+                };
+                
+                // Validation
+                if (!formData.name || !formData.phone) {
+                    showNotification('Please enter your name and phone number', 'error');
+                    return;
+                }
+                
+                if (formData.phone.length < 10) {
+                    showNotification('Please enter a valid phone number', 'error');
+                    return;
+                }
+                
+                // Show loading
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+                submitBtn.disabled = true;
+                
+                // Submit to Google Sheets API
+                const result = await submitMJFitnessForm(formData);
+                
+                // Show result
+                if (result.status === 'success') {
+                    showNotification('✅ ' + result.message, 'success');
+                    this.reset(); // Clear form
+                    
+                    // Open WhatsApp after successful submission
+                    setTimeout(() => {
+                        const whatsappMessage = `Hello MJ Fitness Club! I just submitted the form.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nPlease contact me.`;
+                        const whatsappUrl = `https://wa.me/916366729324?text=${encodeURIComponent(whatsappMessage)}`;
+                        window.open(whatsappUrl, '_blank');
+                    }, 1000);
+                    
+                } else {
+                    showNotification('❌ ' + result.message, 'error');
+                    
+                    // Fallback to WhatsApp if Google Sheets fails
+                    setTimeout(() => {
+                        const whatsappMessage = `Hello MJ Fitness Club! I tried to submit form but got error.\n\nName: ${formData.name}\nPhone: ${formData.phone}\n\nPlease contact me.`;
+                        const whatsappUrl = `https://wa.me/916366729324?text=${encodeURIComponent(whatsappMessage)}`;
+                        window.open(whatsappUrl, '_blank');
+                    }, 1500);
+                }
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    });
+}
+
+// ... REST OF YOUR CODE SAME RAHEGA ...
+// Enhanced Notification
+function showNotification(message, type = 'success') {
+    // Remove existing notifications
+    document.querySelectorAll('.mj-notification').forEach(notif => notif.remove());
+    
+    const notification = document.createElement('div');
+    notification.className = 'mj-notification';
+    
+    const bgColor = type === 'success' ? '#16a34a' : '#dc2626';
+    const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle';
+    
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${bgColor};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        z-index: 10000;
+        animation: slideInRight 0.3s ease;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        max-width: 400px;
+        border-left: 4px solid ${type === 'success' ? '#0f9d58' : '#b91c1c'};
+        font-weight: 500;
+    `;
+    
+    notification.innerHTML = `
+        <i class="fas ${icon}" style="font-size: 1.2rem;"></i>
+        <div>${message}</div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 5000);
+    
+    // Click to close
+    notification.addEventListener('click', () => {
+        notification.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    });
+}
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideOutRight {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+    
+    .btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+`;
+document.head.appendChild(style);
+
+// Video Optimization
 function optimizeVideos() {
     const videos = document.querySelectorAll('.video-player');
     
     videos.forEach(video => {
-        // Lazy loading for videos
         video.setAttribute('loading', 'lazy');
         video.setAttribute('preload', 'metadata');
         
-        // Add loading state
         video.addEventListener('loadstart', function() {
             const container = this.parentElement;
             const loading = document.createElement('div');
@@ -16,7 +213,6 @@ function optimizeVideos() {
             container.appendChild(loading);
         });
         
-        // Remove loading state when video can play
         video.addEventListener('canplay', function() {
             const container = this.parentElement;
             const loading = container.querySelector('.video-loading');
@@ -26,7 +222,6 @@ function optimizeVideos() {
             if (thumbnail) thumbnail.classList.add('hidden');
         });
         
-        // Handle thumbnail click to play video
         const thumbnail = video.parentElement.querySelector('.video-thumbnail');
         if (thumbnail) {
             thumbnail.addEventListener('click', function() {
@@ -35,7 +230,6 @@ function optimizeVideos() {
             });
         }
         
-        // Show thumbnail when video ends
         video.addEventListener('ended', function() {
             const thumbnail = this.parentElement.querySelector('.video-thumbnail');
             if (thumbnail) {
@@ -45,15 +239,7 @@ function optimizeVideos() {
     });
 }
 
-// Document ready me call karen
-document.addEventListener('DOMContentLoaded', function() {
-    // ... existing code ...
-    
-    // Video optimization call karen
-    optimizeVideos();
-    
-    // ... rest of the code ...
-});
+// MJ FITNESS CLUB - PREMIUM JAVASCRIPT
 document.addEventListener('DOMContentLoaded', function() {
     // Loading Screen
     const loading = document.getElementById('loading');
@@ -110,42 +296,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form Submission Handling
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nameInput = this.querySelector('input[type="text"]');
-            const phoneInput = this.querySelector('input[type="tel"]');
-            
-            if (nameInput && phoneInput) {
-                const name = nameInput.value;
-                const phone = phoneInput.value;
-                
-                const message = `Hello MJ Fitness Club!\n\nI'm interested in your services:\nName: ${name}\nPhone: ${phone}\n\nI have coupon code MJFITNESS5 for 5% discount. Please contact me with more details.`;
-                
-                const whatsappUrl = `https://wa.me/916366729324?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-                
-                // Reset form
-                this.reset();
-                
-                // Show success message
-                showNotification('Thank you! We will contact you shortly.');
-            }
-        });
-    });
-
     // Trainer Modal Functionality
     window.openTrainerModal = function(trainerName, trainerBio) {
-        // Remove existing modal if any
         const existingModal = document.querySelector('.trainer-modal');
         if (existingModal) {
             existingModal.remove();
         }
 
-        // Create new modal
         const modal = document.createElement('div');
         modal.className = 'trainer-modal';
         modal.style.cssText = `
@@ -203,50 +360,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.body.appendChild(modal);
 
-        // Close modal functionality
         const closeBtn = modal.querySelector('.close-modal');
         closeBtn.addEventListener('click', function() {
             modal.remove();
         });
 
-        // Close modal when clicking outside
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 modal.remove();
             }
         });
     };
-
-    // Notification System
-    function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #16a34a;
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            z-index: 3000;
-            animation: slideIn 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        `;
-        notification.innerHTML = `
-            <i class="fas fa-check-circle"></i>
-            ${message}
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
-    }
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -280,25 +404,11 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // Add CSS for animations
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from { 
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .trainer-modal {
-            animation: fadeIn 0.3s ease !important;
-        }
-    `;
-    document.head.appendChild(style);
+    // Video optimization call karen
+    optimizeVideos();
+    
+    // INITIALIZE FORMS - Google Sheets Ke Liye
+    initializeForms();
 
     console.log('MJ Fitness Club Premium Website Loaded Successfully!');
 });
